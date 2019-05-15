@@ -2,13 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MenuComponent } from '../common/menu/menu.component';
-import { NavBarComponent } from '../common/nav-bar/nav-bar.component';
+import { MaterialModule } from 'src/_core/sharedata/material.modules';
+import { BreadCrumbComponent } from '../common/bread-crumb/bread-crumb.component';
+import { CardComponent } from '../common/card/card.component';
+import { TableComponent } from '../common/table/table.component';
+import { ModalComponent } from '../common/modal/modal.component';
+
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [MenuComponent, NavBarComponent],
+  imports: [CommonModule,FormsModule, RouterModule, MaterialModule],
+  declarations: [BreadCrumbComponent, CardComponent,TableComponent,ModalComponent],
   exports: [
-    CommonModule, FormsModule, MenuComponent, NavBarComponent]
+     BreadCrumbComponent, CardComponent, TableComponent,ModalComponent,CommonModule, FormsModule]
 })
 export class SharingModule { }

@@ -1,0 +1,30 @@
+<div class="container">
+  <form id="addForm" action="" method="post" #addForm="ngForm" (ngSubmit)="themPhim(addForm.value)">
+    <h3>Thông tin phim</h3>
+    <fieldset>
+      <input name="tenphim" placeholder="Tên Phim" type="text" tabindex="1" autofocus ngModel>
+    </fieldset>
+    <fieldset>
+      <input name="manhom" placeholder="Mã Nhóm" type="text" tabindex="2" ngModel>
+    </fieldset>
+    <fieldset>
+      <input name="hinhanh" placeholder="Link Ảnh" type="tel" tabindex="3" ngModel>
+    </fieldset>
+    <fieldset>
+      <input name="trailer" placeholder="Link Trailer" type="url" tabindex="4" ngModel>
+    </fieldset>
+    <fieldset>
+      <input name="ngaykhoichieu" tabindex="5" type="date" ngModel>
+    </fieldset>
+    <fieldset>
+      <textarea name="mota" placeholder="Mô tả..." tabindex="6" ngModel></textarea >
+    </fieldset>
+    <fieldset>
+      <textarea name="danhgia" placeholder="Đánh giá..." tabindex="7" ngModel></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit"  >Submit</button>
+    </fieldset>
+    <!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p> -->
+  </form>
+</div>

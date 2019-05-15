@@ -1,0 +1,33 @@
+<!-- Main content -->
+<section [ngStyle]="{'margin-left':mainMar}" id="main">
+  <div class="mainHeader">
+    <button class="openbtn" style="display:block" (click)="openNav()">{{content}}</button>
+  </div>
+  
+  <!-- Body -->
+  <div class="bodyMain">
+    <router-outlet></router-outlet>
+  </div>
+</section>
+
+<!-- Sidbar menu -->
+<div [ngStyle]="{'width': sidebarWidth}" id="mySidebar" class="sidebar">
+  <div class="profile ">
+    <div class="profile_pic">
+      <img src="./../../../assets/user1.jpg" alt="..." class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+      <span>Welcome,</span>
+      <h5>John Doe</h5>
+    </div>
+  </div>
+  <div class="general">
+    <a routerLink="">Dashboard</a>
+    <a routerLink="/admin/danh-sach-phim">Quản Lý Phim</a>
+    <a routerLink="">Quản Lý User</a>
+    <a routerLink="">Quản Lý Đặt Vé</a>
+  </div>
+  <div class="sign-out">
+    <a routerLink=""><i class="fa fa-sign-out" aria-hidden="true"></i>Sign-Out</a>
+  </div>
+</div>
