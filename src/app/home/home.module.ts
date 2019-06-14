@@ -9,7 +9,6 @@ import { SharingModule } from '../sharing/sharing.module';
     CommonModule,
     HomeRoutingModule,
     SharingModule,
-
   ]
 })
 export class HomeModule { }

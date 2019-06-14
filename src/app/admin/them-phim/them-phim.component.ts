@@ -14,24 +14,5 @@ export class ThemPhimComponent implements OnInit {
   ngOnInit() {
     
   }
-  themPhim(phimValue) {
-    let objPhim = {
-      TenPhim: phimValue.tenphim,
-      Trailer: phimValue.trailer,
-      HinhAnh: phimValue.hinhanh,
-      MoTa: phimValue.mota,
-      MaNhom: phimValue.manhom,
-      NgayKhoiChieu: phimValue.ngaykhoichieu,
-      DanhGia: phimValue.danhgia,
-    }
-    const uri = `QuanLyPhim/ThemPhimMoi`;
-    this.dataService.post(uri, objPhim).subscribe((res: any) => {
-      if (objPhim.TenPhim === res.TenPhim) {
-        alert('Đã Thêm');
-      }
-      else {
-        alert("Fail")
-      }
-    });
-  }
+  
 }

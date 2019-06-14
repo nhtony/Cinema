@@ -1,0 +1,35 @@
+<div class="container">
+  <form id="addForm" [formGroup]="genaralForm" (ngSubmit)="genaralFormHandle()">
+    <div *ngIf="condition; else elseBlock">
+      <h3>{{this.formTitle.them}}</h3>
+    </div>
+    <ng-template #elseBlock>
+      <h3>{{this.formTitle.capNhat}}</h3>
+      <fieldset>
+        <input formControlName="maphim" placeholder="Mã phim" type="text">
+      </fieldset>
+    </ng-template>
+    <fieldset>
+      <input formControlName="tenphim" placeholder="Tên Phim" type="text">
+    </fieldset>
+    <fieldset>
+      <input formControlName="manhom" placeholder="Mã Nhóm" type="text">
+    </fieldset>
+    <fieldset>
+      <input formControlName="trailer" placeholder="Link Trailer" type="url">
+    </fieldset>
+    <fieldset>
+      <input formControlName="ngaykhoichieu" type="date">
+    </fieldset>
+    <input type="file" (change)="onFileChange($event)" />
+    <fieldset>
+      <textarea formControlName="mota" placeholder="Mô tả..."></textarea>
+    </fieldset>
+    <fieldset>
+      <textarea formControlName="danhgia" placeholder="Đánh giá..."></textarea>
+    </fieldset>
+    <fieldset>
+      <button type="submit" id="contact-submit">Submit</button>
+    </fieldset>
+  </form>
+</div>

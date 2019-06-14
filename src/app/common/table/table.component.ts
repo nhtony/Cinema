@@ -16,32 +16,21 @@ let ELEMENT_DATA = [
 })
 
 export class TableComponent {
-  @Input() phim;
-
+  @Input() phims;
+  mangPhim = [];
+  idPhim: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private router: Router, private dataService: DataService) {
 
   }
 
-  objPhim = {
-    TenPhim: "",
-    Trailer: "",
-    HinhAnh: "",
-    MoTa: "",
-    MaNhom: "",
-    NgayKhoiChieu: "",
-    DanhGia: "",
-  }
-
   ngOnInit() {
     this.pushData();
-
-
   }
 
   pushData() {
-    this.phim.forEach(element => {
+    this.phims.forEach(element => {
       ELEMENT_DATA.push(element);
       this.dataSource.paginator = this.paginator;
     });
@@ -49,6 +38,10 @@ export class TableComponent {
 
   themPhim() {
     this.router.navigate(["/admin/them-phim",], {});
+  }
+  
+  postIdFilm(maPhim) {
+    this.router.navigate(["/admin/cap-nhat-phim/", maPhim], {});
   }
 
   displayedColumns: string[] = ['select', 'MaNhom', 'MaPhim', 'TenPhim', 'NgayKhoiChieu', 'HanhDong'];
@@ -80,29 +73,6 @@ export class TableComponent {
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
-  layThongTinEdit() {
-     this.objPhim = {
-      TenPhim: "",
-      Trailer: "",
-      HinhAnh: "",
-      MoTa: "",
-      MaNhom: "",
-      NgayKhoiChieu: "",
-      DanhGia: "",
-    }
-    const uri = `QuanLyPhim/LayChiTietPhim?MaPhim=1`;
-    this.dataService.get(uri).subscribe((res: any) => {
-      this.objPhim = {
-        TenPhim: res.TenPhim,
-        Trailer: res.Trailer,
-        HinhAnh: res.HinhAnh,
-        MoTa: res.MoTa,
-        MaNhom: res.MaNhom,
-        NgayKhoiChieu: res.NgayKhoiChieu,
-        DanhGia: res.DanhGia,
-      }
-      console.log(this.objPhim);
-    });
-  }
+
 }
 

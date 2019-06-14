@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/_core/services/data.service';
-
+import { ShareDataService } from 'src/_core/services/share-data.service';
+import { Subscription } from "rxjs";
 @Component({
   selector: 'app-danh-sach-phim',
   templateUrl: './danh-sach-phim.component.html',
@@ -8,12 +9,12 @@ import { DataService } from 'src/_core/services/data.service';
 })
 
 export class DanhSachPhimComponent implements OnInit {
-  
+
   danhSachPhim = [];
   mangPhim = [];
+  subListMovie: Subscription;
 
-
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private shareDataSerVice: ShareDataService) {
 
   }
 
@@ -23,11 +24,15 @@ export class DanhSachPhimComponent implements OnInit {
 
   getDanhSachPhim() {
     const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
-    this.dataService.get(uri).subscribe((res: any) => {
+    this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
       this.danhSachPhim = res;
+      this.shareDataSerVice.shareDataListMovie(res);
       this.mangPhim.push(this.danhSachPhim);
+      console.log(this.danhSachPhim);
     });
+ 
   }
-  
-  
+  ngOnDestroy() {
+    this.subListMovie.unsubscribe();
+  }
 }

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { PhimModule } from './phim/phim.module';
+import { MainBodyModule } from './main-body/main-body.module';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'phim', loadChildren: () => PhimModule },
+    {
+        path: '', component: HomeComponent, children: [
+            { path: '', loadChildren: () => MainBodyModule }
+        ]
+    }
 ];
 
 @NgModule({

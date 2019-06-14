@@ -1,2 +1,3 @@
-<app-table *ngFor="let item of mangPhim" [phim]="item"></app-table>
-<app-modal ></app-modal>
+<div *ngFor="let phims of mangPhim" class="container">
+    <app-table [phims]="phims"></app-table>
+</div>

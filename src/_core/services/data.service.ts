@@ -5,12 +5,7 @@ import { tap, catchError } from "rxjs/operators";
 import { environment } from "./../../environments/environment";
 
 let urlAPI = ``;
-const httpOption = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json"
 
-  })
-}
 @Injectable({
   providedIn: "root"
 })
@@ -29,7 +24,8 @@ export class DataService {
       )
     );
   }
-  post(uri: string, data?: object) {
+
+  post(uri: string, data?: object, httpOption?: object): Observable<any> {
     return this.http.post(urlAPI + '/' + uri, data, httpOption).pipe(
       tap(
         () => { },
@@ -39,7 +35,9 @@ export class DataService {
       )
     );
   }
+
   handleError(err) {
+    console.log(err);
     return err;
   }
 }
