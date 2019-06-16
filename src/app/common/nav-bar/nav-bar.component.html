@@ -40,11 +40,13 @@
           </form>
         </div>
         <div class="col-button col-lg-3">
-          <a href="#" class="btn btn-sm animated-button victoria-one">Đăng nhập</a>
+           
+            <button (click) = "dangNhap()" class="btn " data-toggle="modal" data-target="#myModal">Đăng Nhập</button>
         </div>
         <div class="col-button col-lg-3">
-          <a href="#" class="btn btn-sm animated-button victoria-two">Đăng ký</a>
+            <button  (click) = "dangKy()" class="btn" data-toggle="modal" data-target="#myModal">Đăng Ký</button>
         </div>
+        <app-modal></app-modal>
       </div>
     </div>
   </div>

@@ -28,7 +28,6 @@ export class DanhSachPhimComponent implements OnInit {
       this.danhSachPhim = res;
       this.shareDataSerVice.shareDataListMovie(res);
       this.mangPhim.push(this.danhSachPhim);
-      console.log(this.danhSachPhim);
     });
  
   }

@@ -15,12 +15,16 @@ import { FormReactiveComponent } from '../common/form-reactive/form-reactive.com
 import {NavBarComponent} from '../common/nav-bar/nav-bar.component';
 
 import { MovieCardComponent } from '../common/movie-card/movie-card.component';
+import { ModalComponent } from '../common/modal/modal.component';
+import { ActionFormComponent } from '../common/action-form/action-form.component';
+
+
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, MaterialModule, ReactiveFormsModule],
 
-  declarations: [TableComponent, FormReactiveComponent,NavBarComponent,MovieCardComponent],
+  declarations: [TableComponent, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent],
 
-  exports: [TableComponent, CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,MovieCardComponent]
+  exports: [TableComponent, CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent]
 })
 export class SharingModule { }

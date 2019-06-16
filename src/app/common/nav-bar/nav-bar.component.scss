@@ -1,3 +1,42 @@
+$standard: black;
+$white: #F1F2F2;
+$mainColor: #ff4444;
+$transition: all 0.25s ease-in-out;
+@mixin mybutton($color_1, $color_2,$color_3) {
+  width: 100%;
+  padding: 6px;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+	color: $color_1;
+  background-color: $color_2;
+  transition: $transition;
+  display: block;
+	&:hover {
+		background-color: $mainColor;
+		border-color: $color_1;
+    color: $color_2;
+    outline: none;
+	}
+	&:active {
+		background-color:$mainColor;
+		border-color: $color_1;
+		color: $color_2;
+    box-shadow: none;
+    outline: none;
+	}
+	&:focus, &:active:focus {
+		background-color: $mainColor;
+		border-color: $color_1;
+		color: $color_2;
+		outline: none;
+	}
+	&:visited {
+		background-color: $standard;
+    border-color: $color_1;
+    outline: none;
+	}
+}
 .navbar {
 	width:100%;
 	background:#ff4444;
@@ -7,6 +46,18 @@
         .col-left{
             display: flex;
             align-items: center;
+            .navbar-nav {
+              .nav-item{
+                .nav-link{
+                  text-transform: uppercase;
+                  color: $white;
+                }
+                &:hover > .nav-link{
+                  color: black;
+                  transition: all 0.5s;
+                }
+              }
+            }
         }
         .col-right {
             .row{
@@ -48,90 +99,10 @@
                 
             }
             .col-button {
-                text-align: center;
-                /* Global Button Styles */
-                a{
-                  &.animated-button {
-                    &:link, &:visited {
-                      position: relative;
-                      display: block;
-                      padding: 14px 15px;
-                      color: #fff;
-                      font-size: 14px;
-                      font-weight: bold;
-                      text-align: center;
-                      text-decoration: none;
-                      overflow: hidden;
-                      letter-spacing: .08em;
-                      border-radius: 0;
-                      text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-                      -webkit-transition: all 1s ease;
-                      -moz-transition: all 1s ease;
-                      -o-transition: all 1s ease;
-                      transition: all 1s ease;
-                    }
-                    &:link:after, &:visited:after {
-                      content: "";
-                      position: absolute;
-                      height: 0%;
-                      left: 50%;
-                      top: 50%;
-                      width: 150%;
-                      z-index: -1;
-                      -webkit-transition: all 0.75s ease 0s;
-                      -moz-transition: all 0.75s ease 0s;
-                      -o-transition: all 0.75s ease 0s;
-                      transition: all 0.75s ease 0s;
-                    }
-                    &:link:hover, &:visited:hover {
-                      color: #FFF;
-                      text-shadow: none;
-                    }
-                    &:link:hover:after, &:visited:hover:after {
-                      height: 450%;
-                    }
-                    &:link, &:visited {
-                      position: relative;
-                      display: block;
-                      padding: 14px 15px;
-                      color: #fff;
-                      font-size: 14px;
-                      border-radius: 10px;
-                      font-weight: bold;
-                      text-align: center;
-                      text-decoration: none;
-                      overflow: hidden;
-                      letter-spacing: .08em;
-                      text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-                      -webkit-transition: all 1s ease;
-                      -moz-transition: all 1s ease;
-                      -o-transition: all 1s ease;
-                      transition: all 1s ease;
-                    }
-                    &.victoria-one {
-                      border: 1px solid white;
-                      &:after {
-                        background:black;
-                        -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-                        -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-                        -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-                        transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-                      }
-                    }
-                    &.victoria-two {
-                        border: 1px solid white;
-                      &:after {
-                        background: black;
-                        -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-                        -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-                        -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-                        transform: translateX(-50%) translateY(-50%) rotate(25deg);
-                      }
-                    }
-                }
-                }
-                
-
+              .btn {
+                outline: none;
+                @include mybutton($white, $standard,$mainColor);
+              }
             }
         }
     }
