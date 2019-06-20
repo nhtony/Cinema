@@ -5,10 +5,11 @@
     </div>
     <div class="movieShower__content">
       <ul id="tabs" class="nav nav-tabs" role="tablist">
-        <li (click)="showPhimDangChieu()" role="presentation"><a class="hvr-grow br-radius-left active" href="#dangChieu" role="tab"
-            data-toggle="tab">Đang Chiếu</a>
+        <li (click)="showPhimDangChieu()" role="presentation"><a class="hvr-grow br-radius-left active"
+            href="#dangChieu" role="tab" data-toggle="tab">Đang Chiếu</a>
         </li>
-        <li (click)="showPhimSapChieu()"  role="presentation"><a class="hvr-grow br-radius-right" href="#sapChieu" role="tab" data-toggle="tab">Sắp
+        <li (click)="showPhimSapChieu()" role="presentation"><a class="hvr-grow br-radius-right" href="#sapChieu"
+            role="tab" data-toggle="tab">Sắp
             Chiếu</a></li>
       </ul>
       <div class="tab-content">
@@ -16,7 +17,7 @@
           <app-carousel></app-carousel>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="sapChieu">
-          <!-- <app-carousel></app-carousel> -->
+          <app-carousel></app-carousel>
         </div>
       </div>
     </div>

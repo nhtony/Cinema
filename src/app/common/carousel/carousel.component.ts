@@ -31,7 +31,11 @@ export class CarouselComponent implements AfterViewInit {
 
   listPhimDangChieu: any = [];
 
+  listPhim: any = [];
+
   soPhimHienThi: number = 8;
+
+  showState: boolean;
 
   constructor(private cdr: ChangeDetectorRef, private data: ShareDataService) {
 
@@ -43,20 +47,35 @@ export class CarouselComponent implements AfterViewInit {
 
   ngOnInit() {
     this.getListMovie();
-    
+
+
+
   }
 
   getListMovie() {
     this.data.shareListMovie.subscribe((res) => {
       if (res.length > 0) {
         this.phanLoaiPhim(res);
+        this.controlShowing();
+      }
+    });
+  }
+
+  controlShowing() {
+    this.data.shareShowState.subscribe((res) => {
+      if (res.isPlaying) {
+        this.carouselMovies.splice(0);
+        this.phanTrangTuDong(this.listPhimDangChieu, this.soPhimHienThi);
+      }
+      else {
+        this.carouselMovies.splice(0);
         this.phanTrangTuDong(this.listPhimSapChieu, this.soPhimHienThi);
       }
     });
   }
 
-  getTime(time:string,date:any) {
-    let today = (date === null ) ? new Date() : new Date(date);
+  getTime(time: string, date: any) {
+    let today = (date === null) ? new Date() : new Date(date);
     switch (time) {
       case 'year':
         let year = today.getFullYear();
@@ -73,13 +92,13 @@ export class CarouselComponent implements AfterViewInit {
   }
 
   phanLoaiPhim(mangPhim) {
-   
+
     mangPhim.forEach(element => {
 
-      let filmYear = this.getTime('year',element.NgayKhoiChieu);
-      let filmMonth = this.getTime('month',element.NgayKhoiChieu);
-      let currentYear = this.getTime('year',null);
-      let curretMonth = this.getTime('month',null);
+      let filmYear = this.getTime('year', element.NgayKhoiChieu);
+      let filmMonth = this.getTime('month', element.NgayKhoiChieu);
+      let currentYear = this.getTime('year', null);
+      let curretMonth = this.getTime('month', null);
 
       if (filmYear === currentYear && filmMonth > curretMonth) {
         this.listPhimSapChieu.push(element);

@@ -4,23 +4,12 @@
 		padding:  50px;
 		font-weight: 700;
 		h2{
-			bottom: 0px;
-    		box-sizing: border-box;
-    		cursor: default;
-    		height: 35.2px;
-    		left: 0px;
-    		position: relative;
-    		right: 0px;
     		text-align: center;
     		text-size-adjust: 100%;
     		text-transform: uppercase;
-    		top: 0px;
-    		perspective-origin: 570px 17.6px;
-    		transform-origin: 570px 17.6px;
-    		font: normal normal 700 normal 32px / 35.2px Poppins, sans-serif;
-    		margin: 0px;
+    		font: normal normal 700 normal 32px / 35.2px;
+		}
 	}
-}
 	&__content{
 		.nav-tabs{
 			justify-content: center;
