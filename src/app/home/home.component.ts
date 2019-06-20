@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/_core/services/data.service';
+import { ShareDataService } from 'src/_core/services/share-data.service';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  subListMovie: Subscription;
+  constructor(private dataService: DataService, private shareDataSerVice: ShareDataService) { }
 
   ngOnInit() {
+    this.getDanhSachPhim();
   }
+
+  getDanhSachPhim() {
+    const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
+    this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
+      this.shareDataSerVice.shareDataListMovie(res);    
+    });
+  }
+
+  ngOnDestroy() {
+    this.subListMovie.unsubscribe();
+  }
+
 
 }

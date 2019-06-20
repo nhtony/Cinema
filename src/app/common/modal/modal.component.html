@@ -4,12 +4,20 @@
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">{{this.modalTitle}}</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div *ngIf="!isPlayVideo">
+          <h4 class="modal-title">{{this.modalTitle}}</h4>
+        </div>
+        <button (click)="stop()" type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-        <app-action-form></app-action-form>
+        <div *ngIf="isPlayVideo; else elseBlock">
+          <app-video></app-video>
+        </div>
+        <ng-template #elseBlock>
+          <app-action-form></app-action-form>
+        </ng-template>
       </div>
     </div>
   </div>
+</div>

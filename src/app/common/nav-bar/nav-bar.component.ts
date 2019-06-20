@@ -18,10 +18,12 @@ export class NavBarComponent implements OnInit {
   }
   dangNhap() {
     this.shareDataService.shareDataActionState(this.isLogin);
+    this.shareDataService.shareDataPlayState(false);
   }
   dangKy() {
     this.shareDataService.shareDataActionState(this.isSignUp);
+    this.shareDataService.shareDataPlayState(false);
   }
 
-  
+
 }

@@ -1,10 +1,10 @@
-<form [formGroup]="actionForm" (ngSubmit)="actionFormHandle()">
+<form id="actionForm" [formGroup]="actionForm" (ngSubmit)="actionFormHandle(actionForm.value)">
   <div *ngIf="condition; else elseBlock">
     <mat-form-field>
       <input matInput formControlName="taikhoan"  placeholder="Tài khoản">
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="matkhau"  placeholder="Mật khẩu">
+      <input  type="password"  matInput formControlName="matkhau"  placeholder="Mật khẩu">
     </mat-form-field>
     <fieldset>
       <button type="submit" class="btn btn-success" id="contact-submit">Đăng nhập</button>
@@ -16,7 +16,7 @@
       <input matInput formControlName="taikhoan" placeholder="Tài khoản">
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="matkhau"  placeholder="Mật khẩu">
+      <input type="password" matInput formControlName="matkhau"  placeholder="Mật khẩu">
     </mat-form-field>
     <mat-form-field>
       <input matInput formControlName="email"   placeholder="Email">

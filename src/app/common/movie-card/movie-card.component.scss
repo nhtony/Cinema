@@ -8,7 +8,7 @@ $color_3: #f7f406;
 	box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
 	width: 245px;
     height: 350px;
-    margin: 0 auto;
+    margin:15px auto;
     // padding: 0;
 	.poster {
 		position: relative;
@@ -102,7 +102,6 @@ $color_3: #f7f406;
 	}
 }
 
-
 ul {
 	list-style: none;
 	margin: 10px;
@@ -115,7 +114,7 @@ ul {
 $background_color_1: rgba(0,0,0,0.5);
 $background_color_2: rgba(0,0,0,0.8);
 
-.round-button {
+.play-button {
 	box-sizing: border-box;
 	display: block;
 	width: 45px;

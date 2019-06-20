@@ -1,8 +1,9 @@
 <div class="card">
-    <div class="poster"><img src="../../../assets/img/content/up2.jpg">
+    <div class="poster">
+        <img src="{{this.phim.HinhAnh}}">
     </div>
     <div class="details">
-        <h2>Avengers Infinity War (2018)</h2>
+        <h2>{{this.phim.TenPhim}}</h2>
         <div class="rating">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
@@ -11,14 +12,18 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <span>5/5</span>
         </div>
-        <div class="info">
-            <p>Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most
-                powerful
-                enemy yet</p>
-        </div>
         <ul>
-            <li><a href="#" class="round-button"><i class="fa fa-play fa-2x"></i></a></li>
-            <li><button class="btn btn-danger">MUA VÉ</button></li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#myModal" (click)="playVideo()" class="play-button">
+                    <i class="fa fa-play fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <button class="btn btn-danger">MUA VÉ</button>
+            </li>
         </ul>
+        <div class="info">
+            <p>{{this.phim.MoTa}}</p>
+        </div>
     </div>
 </div>

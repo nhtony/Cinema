@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareDataService } from 'src/_core/services/share-data.service';
 
 @Component({
   selector: 'app-main-body',
@@ -10,6 +11,7 @@ export class MainBodyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

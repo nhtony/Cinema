@@ -4,14 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from 'src/_core/guards/auth-guard.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-  
+    PageNotFoundComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,32 +1,8 @@
-<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselMovies">
   <div *nguCarouselDef="let item;" class="item">
     <div class="row">
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
-      </div>
-      <div class="col-md-3">
-        <app-movie-card></app-movie-card>
+      <div *ngFor="let phim of item;let stt = index" class="col-md-3">
+        <app-movie-card [phim]="phim"></app-movie-card>
       </div>
     </div>
   </div>

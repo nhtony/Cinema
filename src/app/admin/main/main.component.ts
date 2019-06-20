@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/_core/services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -10,10 +11,10 @@ export class MainComponent implements OnInit {
   mainMar: string = '';
   isOpen: boolean = false;
   content: string = 'Menu';
-  constructor() { }
+  constructor(private _authservice: AuthService) { }
 
   ngOnInit() {
-    
+
   }
   openNav() {
     this.isOpen = !this.isOpen;
@@ -27,7 +28,10 @@ export class MainComponent implements OnInit {
       this.content = 'Menu';
       this.sidebarWidth = '0';
       this.mainMar = '0';
-
     }
+  }
+
+  signOut() {
+    this._authservice.logout();
   }
 }

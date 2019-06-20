@@ -3,7 +3,6 @@ $white: #F1F2F2;
 $mainColor: #ff4444;
 $transition: all 0.25s ease-in-out;
 @mixin mybutton($color_1, $color_2,$color_3) {
-  width: 100%;
   padding: 6px;
   font-size: 1.15em;
   letter-spacing: 1px;
@@ -11,29 +10,29 @@ $transition: all 0.25s ease-in-out;
 	color: $color_1;
   background-color: $color_2;
   transition: $transition;
-  display: block;
+  margin: 10px;
 	&:hover {
 		background-color: $mainColor;
 		border-color: $color_1;
-    color: $color_2;
+    color:$white;
     outline: none;
 	}
 	&:active {
 		background-color:$mainColor;
 		border-color: $color_1;
-		color: $color_2;
+		color: $white;
     box-shadow: none;
     outline: none;
 	}
 	&:focus, &:active:focus {
 		background-color: $mainColor;
 		border-color: $color_1;
-		color: $color_2;
+		color: $white;
 		outline: none;
 	}
 	&:visited {
 		background-color: $standard;
-    border-color: $color_1;
+    border-color:$white;
     outline: none;
 	}
 }
@@ -60,51 +59,15 @@ $transition: all 0.25s ease-in-out;
             }
         }
         .col-right {
-            .row{
                 display: flex;
                 align-items: center;
-            .col-search {
-                margin: 0 auto;
-                form{
-                    .input-group{
-                        select {
-                            background: #F6F6F6;
-                            border-radius: 3px 0 0 3px;
-                            color: #9E9E9E;
-                            border: none;
-                            &:focus{
-                                box-shadow: none;
-                                outline: none;
-                            }
-                        }
-                        .form-control{
-                            border: none;
-                            padding: 0 auto;
-                            &:focus{
-                               
-                                box-shadow: none;
-                            } 
-                        }
-                        .search-button{
-                            button{
-                                &:focus{
-                                    box-shadow: none;              
-                                }
-                            }
-                        }
-                    }
-                 
-                }
-            
-                
-            }
-            .col-button {
+                justify-content: flex-end;
               .btn {
                 outline: none;
                 @include mybutton($white, $standard,$mainColor);
               }
-            }
+            
         }
     }
  }
-}
+

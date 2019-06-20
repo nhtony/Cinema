@@ -8,10 +8,9 @@ import { MainRoutingModule } from './main-routing.module';
   declarations: [MainComponent],
   exports: [MainComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     SharingModule,
     MainRoutingModule,
-    
   ]
 })
 export class MainModule { }
