@@ -17,6 +17,9 @@ export class ShareDataService {
 
   private showState = new BehaviorSubject({} as any);
   shareShowState = this.showState.asObservable();
+
+  private checkLoginState = new BehaviorSubject({} as any);
+  shareCheckLoginState = this.checkLoginState.asObservable();
   
   constructor() { }
 
@@ -34,6 +37,10 @@ export class ShareDataService {
 
   shareDataShowState(showState: any) {
     this.showState.next(showState);
+  }
+
+  shareDataCheckLoginState(checkLoginState: any) {
+    this.checkLoginState.next(checkLoginState);
   }
 
 }

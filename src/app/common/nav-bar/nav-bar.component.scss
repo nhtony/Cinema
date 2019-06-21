@@ -62,6 +62,27 @@ $transition: all 0.25s ease-in-out;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                .dropdown{
+                  .avatar{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    cursor: pointer;
+                    img{
+                      width: 100%;
+                      display: block;
+                      border-radius: 50%;
+                    }
+                  }
+                  .dropdown-menu{
+                    padding: 0;
+                    border-radius: 0px;
+                    .dropdown-item{
+                      padding: 0;
+                      text-align: center;
+                    }
+                  }
+                }
               .btn {
                 outline: none;
                 @include mybutton($white, $standard,$mainColor);

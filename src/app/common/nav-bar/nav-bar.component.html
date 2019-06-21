@@ -22,9 +22,25 @@
       </ul>
     </div>
     <div class="col-right col-lg-5">
-      <button (click)="dangNhap()" class="btn " data-toggle="modal" data-target="#myModal">Đăng Nhập</button>
-      <button (click)="dangKy()" class="btn" data-toggle="modal" data-target="#myModal">Đăng Ký</button>
+      <div *ngIf="condition; else elseBlock">
+        <div class="dropdown">
+          <div class="avatar dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../../../assets/img/header/user1.jpg" alt="avatar">
+            <p class="ml-3 mb-0">John Cena</p>
+          </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button (click)="dangXuat()" class="dropdown-item"><i class="fa fa-sign-out-alt"></i>Đăng xuất</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <button (click)="dangNhap()" class="btn " data-toggle="modal" data-target="#myModal">Đăng Nhập</button>
+        <button (click)="dangKy()" class="btn" data-toggle="modal" data-target="#myModal">Đăng Ký</button>
+      </ng-template>
     </div>
     <app-modal></app-modal>
   </div>
 </nav>
+<!-- <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#FF4444" type="fire" [fullScreen]="true">
+  <p style="color: white"> Đang tải... </p>
+</ngx-spinner> -->

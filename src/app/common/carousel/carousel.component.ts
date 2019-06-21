@@ -170,5 +170,6 @@ export class CarouselComponent implements AfterViewInit {
   moveTo(slide) {
     this.myCarousel.moveTo(slide, !this.withAnim);
   }
+  
 
 }

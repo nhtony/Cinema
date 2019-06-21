@@ -21,11 +21,10 @@ import { ModalComponent } from '../common/modal/modal.component';
 import { ActionFormComponent } from '../common/action-form/action-form.component';
 
 import { VideoComponent } from '../common/video/video.component';
-
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, RouterModule, MaterialModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, MaterialModule, ReactiveFormsModule,NgxSpinnerModule],
 
   declarations: [TableComponent, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent],
 

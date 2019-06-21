@@ -5,18 +5,23 @@ import { DataService } from 'src/_core/services/data.service';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 import { AuthService } from '../../../_core/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-action-form',
   templateUrl: './action-form.component.html',
   styleUrls: ['./action-form.component.scss']
 })
 export class ActionFormComponent implements OnInit {
-  
+
   private condition: boolean;
 
   actionForm: FormGroup;
 
-  constructor(private dataService: DataService, private shareDataService: ShareDataService,private _authService: AuthService) { }
+  private logined: any = {
+    status: true,
+  };
+
+  constructor(private dataService: DataService, private shareDataService: ShareDataService, private _authService: AuthService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.actionForm = new FormGroup({
@@ -27,7 +32,7 @@ export class ActionFormComponent implements OnInit {
     });
     this.shareDataService.shareActionState.subscribe((res: any) => {
       this.condition = res.status;
-    })
+    });
   }
 
   actionFormHandle(user?: any) {
@@ -45,22 +50,34 @@ export class ActionFormComponent implements OnInit {
 
     this.dataService.post(uri, objUser).subscribe((res: any) => {
       $("#btnDong").trigger("click");
+      this.resetForm();
       if (this.condition) {
         if (res === "Tài khoản hoặc mật khẩu không đúng !") {
           alert(res);
         } else {
-          alert("Login Success");
-          this._authService.loginAdmin();
+          this._authService.login();
+          if (this._authService.isAuthenticated()) {
+            this.shareDataService.shareDataCheckLoginState(this.logined);
+          }
         }
       }
       else {
         if (typeof res === 'object') {
-          Swal.fire('Thành công !!!')
+          Swal.fire('Thành công !!!');
         }
         else {
-          Swal.fire('Oops...', 'Không thành công!', 'error')
+          Swal.fire('Oops...', 'Không thành công!', 'error');
         }
       }
     })
+  }
+
+  resetForm() {
+    this.actionForm = new FormGroup({
+      'taikhoan': new FormControl(null),
+      'matkhau': new FormControl(null),
+      'email': new FormControl(null),
+      'sdt': new FormControl(null),
+    });
   }
 }

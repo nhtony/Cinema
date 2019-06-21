@@ -7,20 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from 'src/_core/guards/auth-guard.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-   
-    
+       
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+   
 
   ],
   providers: [AuthGuard],
