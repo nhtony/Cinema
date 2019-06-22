@@ -10,7 +10,6 @@ $transition: all 0.25s ease-in-out;
 	color: $color_1;
   background-color: $color_2;
   transition: $transition;
-  margin: 10px;
 	&:hover {
 		background-color: $mainColor;
 		border-color: $color_1;
@@ -85,6 +84,7 @@ $transition: all 0.25s ease-in-out;
                 }
               .btn {
                 outline: none;
+                margin:0 10px;
                 @include mybutton($white, $standard,$mainColor);
               }
             

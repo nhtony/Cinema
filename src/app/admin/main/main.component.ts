@@ -32,6 +32,7 @@ export class MainComponent implements OnInit {
   }
 
   signOut() {
-    this._authservice.logout();
+    this._authservice.clear();
+    location.replace('/home');
   }
 }

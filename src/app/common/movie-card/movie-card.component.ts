@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import { AuthService } from 'src/_core/services/auth.service';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -12,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class MovieCardComponent implements OnInit {
+
   @Input() phim;
 
   linkTrailer: string;
@@ -25,10 +25,6 @@ export class MovieCardComponent implements OnInit {
     status: true,
   };
 
-  idPhim: any;
-  tenPhimParam: any;
-  subParams: Subscription;
-  subDetailMovie: Subscription;
 
   constructor( private data: ShareDataService, private _authService: AuthService, private router: Router) { }
 
@@ -45,13 +41,17 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
-  muaVe(maPhim, tenPhim) {
+  xemChiTiet() {
     if (this._authService.isAuthenticated()) {
       $('.btnMua').removeAttr('data-toggle');
-      this.router.navigate(["./home/phim", maPhim + '-' + tenPhim]);
+      this.router.navigate(["./home/phim",this.phim.MaPhim],{queryParams:{name:this.phim.TenPhim}});
     }
     else {
       this.data.shareDataActionState(this.isLogin);
     }
+  }
+
+  playVideo() {
+    this.data.shareDataPlayState(this.isPlay);
   }
 }

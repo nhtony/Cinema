@@ -48,7 +48,7 @@ export class AuthService {
    */
   logout(): void {
     this.clear();
-    // this._router.navigate(['/home']);
+    this._router.navigate(['/home']);
   }
 
   decode() {

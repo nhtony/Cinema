@@ -11,15 +11,12 @@ import { AuthGuard } from 'src/_core/guards/auth-guard.service';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-       
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-   
-
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
