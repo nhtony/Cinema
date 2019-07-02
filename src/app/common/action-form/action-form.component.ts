@@ -58,6 +58,7 @@ export class ActionFormComponent implements OnInit {
           this._authService.login();
           if (this._authService.isAuthenticated()) {
             this.shareDataService.shareDataCheckLoginState(this.logined);
+            this.shareDataService.shareDataAccount(objUser);
           }
         }
       }
@@ -80,4 +81,5 @@ export class ActionFormComponent implements OnInit {
       'sdt': new FormControl(null),
     });
   }
+
 }

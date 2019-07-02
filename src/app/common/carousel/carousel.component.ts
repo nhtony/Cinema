@@ -31,8 +31,6 @@ export class CarouselComponent implements AfterViewInit {
 
   listPhimDangChieu: any = [];
 
-  listPhim: any = [];
-
   soPhimHienThi: number = 8;
 
   showState: boolean;
@@ -47,9 +45,7 @@ export class CarouselComponent implements AfterViewInit {
 
   ngOnInit() {
     this.getListMovie();
-
-
-
+    
   }
 
   getListMovie() {
@@ -57,6 +53,7 @@ export class CarouselComponent implements AfterViewInit {
       if (res.length > 0) {
         this.phanLoaiPhim(res);
         this.controlShowing();
+        this.pushPhimDangChieu();
       }
     });
   }
@@ -106,14 +103,13 @@ export class CarouselComponent implements AfterViewInit {
       else if (filmYear === currentYear && filmMonth < curretMonth) {
         this.listPhimDangChieu.push(element);
       }
-
       else if (filmYear === currentYear && filmMonth === curretMonth) {
         this.listPhimDangChieu.push(element);
       }
-
       else if (filmYear > currentYear) {
         this.listPhimSapChieu.push(element);
       }
+
     });
   }
 
@@ -169,6 +165,10 @@ export class CarouselComponent implements AfterViewInit {
 
   moveTo(slide) {
     this.myCarousel.moveTo(slide, !this.withAnim);
+  }
+
+  pushPhimDangChieu(){
+    this.data.shareDataListPhimDangChieu(this.listPhimDangChieu);
   }
   
 

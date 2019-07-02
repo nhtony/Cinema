@@ -1,0 +1,19 @@
+<section class="lichChieu">
+  <div class="container">
+    <div class="row">
+      <div class="brands col-md-2">
+        <ul class="navnav-pills nav-stacked nav-brand">
+          <app-brand-item *ngFor="let item of brands" [brand]="item"></app-brand-item>
+        </ul>
+      </div>
+      <div class="tab-content col-md-6">
+        <app-brand-content *ngFor="let item of brandContents" [brandContent]="item"></app-brand-content>
+      </div>
+      <div class="wrapper col-md-4">
+        <ul class="wrapper__content">
+          <app-lich-phim *ngFor="let item of listPhimDangChieu" [phim]="item"></app-lich-phim>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

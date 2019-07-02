@@ -16,6 +16,8 @@ export class MovieCardComponent implements OnInit {
 
   linkTrailer: string;
 
+  private listStar = [];
+
   private isPlay: any = {
     status: true,
     idYoutubeURL: '',
@@ -30,6 +32,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {
     this.getVideoID();
+    this.getStar();
   }
 
   getVideoID() {
@@ -48,6 +51,13 @@ export class MovieCardComponent implements OnInit {
     }
     else {
       this.data.shareDataActionState(this.isLogin);
+    }
+  }
+
+  getStar(){
+    let length =  parseInt(this.phim.DanhGia);
+    for (let index = 0; index < length; index++) {
+        this.listStar.push(index);
     }
   }
 

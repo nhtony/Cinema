@@ -8,8 +8,6 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from 'src/_core/sharedata/material.modules';
 
-import { TableComponent } from '../common/table/table.component';
-
 import { FormReactiveComponent } from '../common/form-reactive/form-reactive.component';
 
 import {NavBarComponent} from '../common/nav-bar/nav-bar.component';
@@ -22,12 +20,14 @@ import { ActionFormComponent } from '../common/action-form/action-form.component
 
 import { VideoComponent } from '../common/video/video.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { TimeTableComponent } from '../home/phim/time-table/time-table.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, MaterialModule, ReactiveFormsModule,NgxSpinnerModule],
 
-  declarations: [TableComponent, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent],
+  declarations: [ FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent],
 
-  exports: [TableComponent, CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent]
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent]
+  
 })
 export class SharingModule { }

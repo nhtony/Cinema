@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input ,Output, EventEmitter} from '@angular/core';
+import { ShareDataService } from 'src/_core/services/share-data.service';
 
 @Component({
   selector: 'app-ghe',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GheComponent implements OnInit {
 
-  constructor() { }
+  @Input() ghe;
+  dangChon: boolean = false;
+  @Output() eventChonGhe = new EventEmitter();
+
+  constructor(private data: ShareDataService) { }
 
   ngOnInit() {
+    
+  }
+
+  chonGhe() {
+    this.dangChon = !this.dangChon;
+    let objGhe = {
+      ghe: this.ghe,
+      dangChon: this.dangChon
+    }
+    this.eventChonGhe.emit(objGhe);
+
   }
 
 }

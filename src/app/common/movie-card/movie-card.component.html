@@ -5,12 +5,8 @@
     <div class="details">
         <h2>{{this.phim.TenPhim}}</h2>
         <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <span>5/5</span>
+            <i *ngFor="let star of listStar;let stt = index" class="fa fa-star" aria-hidden="true"></i>
+            <span>{{listStar.length}}/5</span>
         </div>
         <ul>
             <li>
@@ -19,8 +15,8 @@
                 </a>
             </li>
             <li>
-                <button data-toggle="modal" data-target="#myModal"
-                    (click)="xemChiTiet()" class="btn btnMua btn-danger">CHI
+                <button data-toggle="modal" data-target="#myModal" (click)="xemChiTiet()"
+                    class="btn btnMua btn-danger">CHI
                     TIẾT</button>
             </li>
         </ul>

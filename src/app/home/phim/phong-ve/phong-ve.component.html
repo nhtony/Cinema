@@ -1,0 +1,91 @@
+<section class="phongve">
+    <div class="phongve__content row">
+        <div class="mid-content col-md-9">
+            <div class="time-bar row">
+                <div class="rap col-md-8">
+                    <div class="rap__content">
+                        <img src="" alt="hinhRap">
+                        <h4>Ten rap</h4>
+                        <p>thoi gian chieu</p>
+                    </div>
+                </div>
+                <div class="time col-md-4">
+                    <div class="time__content">
+                        <h5>Thời gian giữ ghế</h5>
+                        <span>hh-pp-gg</span>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="seat-map">
+                <h3>Màn hình</h3>
+                <div class="seats">
+                    <app-ghe *ngFor="let item of seatMaps" [ghe]="item" (eventChonGhe)="chonGhe($event)"></app-ghe>
+                </div>
+                <ul class="seat-note">
+                    <li>Ghế trống</li>
+                    <li>Dang chọn</li>
+                    <li>Đã chọn</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-sidebar col-md-3">
+            <cdk-virtual-scroll-viewport style="height: 500px" itemSize="90">
+                <ng-container>
+                    <div class="price">
+                        <h2>{{tongTien | currency: "VND"}}</h2>
+                    </div>
+                    <div class="confirm">
+                        <div class="info">
+                            <h4>Ten Phim</h4>
+                            <p>Ten rap</p>
+                            <p>Dia chi</p>
+                        </div>
+                        <div class="chair row">
+                            <div class="type col-md-8">
+                                <span>Ghế</span>
+                            </div>
+                            <div class="total col-md-4">
+                                <span>{{tienGhe | currency: "VND"}}</span>
+                            </div>
+                        </div>
+                        <div class="popcorn row">
+                            <div class="col-md-8">
+                                <button (click)="openComboBox()">Combo</button>
+                            </div>
+                            <div class="col-md-4">
+                                <span>{{tienCombo  | currency: "VND"}}</span>
+                            </div>
+                        </div>
+                        <div class="thanhToan">
+                            <h4>Phương thức thanh toán</h4>
+                            <form action="/action_page.php" method="get">
+                                <input type="radio" name="gender" value="male"> Male<br>
+                                <input type="radio" name="gender" value="female"> Female<br>
+                            </form>
+                        </div>
+                    </div>
+                </ng-container>
+            </cdk-virtual-scroll-viewport>
+            <div class="buy">
+                <button (click)="datVe()">Đặt vé</button>
+            </div>
+            <div [ngClass]="{showCombo:openCombo,hideCombo:hideCombo}" class="combo">
+                <div class="combo__content">
+                    <div class="combo__head">
+                        <h4>COMBO</h4>
+                        <button (click)="thoat()">Thoát<i class="fa fa-arrow-right"></i></button>
+                    </div>
+                    <ul class="combo__menu">
+                        <app-combo (eventTinhTien)="tinhTienCombo($event)" *ngFor="let combo of comboMenu"
+                            [combo]="combo">
+                        </app-combo>
+                    </ul>
+                    <div class="combo__total">
+                        <span>Tiền:{{tienCombo | currency: "VND" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

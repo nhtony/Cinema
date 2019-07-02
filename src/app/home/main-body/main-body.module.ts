@@ -5,6 +5,7 @@ import { MainBodyRoutingModule } from './main-body-routing.module';
 import { SharingModule } from 'src/app/sharing/sharing.module';
 import { ShowerModule } from './shower/shower.module';
 import { SliderModule } from './slider/slider.module';
+import { LichChieuModule } from './lich-chieu/lich-chieu.module';
 
 @NgModule({
   declarations: [MainBodyComponent],
@@ -14,7 +15,8 @@ import { SliderModule } from './slider/slider.module';
     MainBodyRoutingModule, 
     SharingModule,
     ShowerModule,
-    SliderModule
+    SliderModule,
+    LichChieuModule
   ]
 })
 export class MainBodyModule { }

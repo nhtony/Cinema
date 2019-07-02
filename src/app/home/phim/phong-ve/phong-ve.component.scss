@@ -1,0 +1,148 @@
+.phongve{
+    padding: 65px 15px 0 15px;
+    .phongve__content{
+        .mid-content{
+            .time-bar{ 
+                background-color: aquamarine;
+                .rap{
+                    display: flex;
+                    align-items: center;
+                    &__content{
+                        margin-left: 5%;
+                    }
+                }
+                .time{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                   &__content{
+                    text-align: center;
+                   }
+                }
+            }
+            .divider{
+                width: 100%;
+                height: 5%;
+                display: block;
+                background-color: black;
+                margin: 5% 0 2% 0;
+            }
+            .seat-map{
+                h3{
+                    text-align: center;
+                    margin-bottom: 50px;
+                }
+                .seats{
+                    width: 60%;
+                    margin: 0 auto;
+                   
+                }
+                .seat-note{
+                    margin-top: 20px;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    justify-content: center;
+                    li{
+                        text-decoration: none;
+                        margin: 10px;
+                    }
+                }
+            }
+        }
+     
+        .right-sidebar{
+            padding: 36px;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+            .price{
+                text-align: center;
+                border-bottom: 1px dashed #e9e9e9;
+                margin-bottom: 10px;
+            }
+            .confirm{
+                .info{
+                    border-bottom: 1px dashed #e9e9e9;
+                    margin-bottom: 10px;
+                }
+                .chair{
+                    border-bottom: 1px dashed #e9e9e9;
+                    margin-bottom: 10px;
+                }
+                .popcorn{
+                    padding-bottom: 10px;
+                    border-bottom: 1px dashed #e9e9e9;
+                    margin-bottom: 10px;
+                }
+                .thanhToan{
+                   
+                    margin-bottom: 10px;
+                }
+            }
+           
+            .buy{
+                padding:0;
+                margin-top: 21%;
+                button{
+                    width: 100%;
+                    height: 50px;
+                    display: block;
+                    background-color: #FF4444;
+                    border: none;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            } 
+        }
+        .combo{
+            position: absolute;
+            top: 0;
+            left: 100%;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: green;
+           
+            .combo__head{
+               display: flex;
+               justify-content: space-around;
+               align-items: center;
+                background-color:#F1F2F3;
+                padding: 37px 0;
+                h4{
+                    text-align: center;
+                    margin-bottom: 0px;
+                }
+            }
+            .combo__menu{
+                list-style: none;
+                padding: 50px 0;
+                border-bottom: 1px dashed #e9e9e9;
+            }
+        }
+        .showCombo{
+            left: 0;
+            animation-name: showLeft;
+            animation-timing-function: ease;
+            animation-duration: 0.5s;
+        }
+        .hideCombo{
+            left: 100%;
+            animation-name: hideRight;
+            animation-timing-function: ease;
+            animation-duration: 0.5s;
+        }
+        
+    }
+}
+@keyframes showLeft {
+    0%   { left: 100%}
+    100%  { left: 0}
+  }
+
+@keyframes hideRight{
+    0%   { left: 0}
+    100%  { left: 100%}
+}

@@ -18,15 +18,23 @@ export class HomeComponent implements OnInit {
   }
 
   getDanhSachPhim() {
+    let objPhim = {
+      maPhim: ''
+    }
     const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
     this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
-      this.shareDataSerVice.shareDataListMovie(res);    
+      this.shareDataSerVice.shareDataListMovie(res);  
+      objPhim.maPhim = res.MaPhim;
+      this.shareDataSerVice.shareDataMaPhim(objPhim);
     });
   }
+
+ 
 
   ngOnDestroy() {
     this.subListMovie.unsubscribe();
   }
+
 
 
 }

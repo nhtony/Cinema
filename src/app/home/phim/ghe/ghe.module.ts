@@ -4,6 +4,7 @@ import { GheComponent } from './ghe.component';
 
 @NgModule({
   declarations: [GheComponent],
+  exports: [GheComponent],
   imports: [
     CommonModule
   ]

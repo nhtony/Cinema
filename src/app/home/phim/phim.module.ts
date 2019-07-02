@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhimComponent } from './phim.component';
 import { PhimRoutingModule } from './phim-routing.componet';
-import { GheComponent } from './ghe/ghe.component';
-import { DanhSachGheComponent } from './danh-sach-ghe/danh-sach-ghe.component';
+import { MaterialModule } from 'src/_core/sharedata/material.modules';
+import { SharingModule } from 'src/app/sharing/sharing.module';
 
 
 @NgModule({
-  declarations: [PhimComponent, GheComponent, DanhSachGheComponent],
+  declarations: [PhimComponent],
   imports: [
     CommonModule,
-    PhimRoutingModule
+    PhimRoutingModule,
+    MaterialModule,
+    SharingModule
   ]
 })
 export class PhimModule { }

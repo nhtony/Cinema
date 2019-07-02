@@ -1,20 +1,13 @@
 .detailMain{
     width: 100%;
-    .detailCard{
-        display: flex;
-        align-items: center;
-    }
-    .col{
-        padding: 0 0;
-    }
-  
+    padding:8% 8% 0 8%;
 }
 .movie_card{
     position: relative;
     display: block;
     width: 800px;
     height: 350px;
-    margin: 100px auto; 
+    margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.4s;
@@ -37,13 +30,13 @@
           color: #fff;
           font-weight: 400;
         }
-        h4{
+        h5{
           color: #9ac7fa;
           font-weight: 400;
         }
         .minutes{
           display: inline-block;
-          margin-top: 10px;
+           margin-right: 10px;
           color: #fff;
           padding: 5px;
           border-radius: 5px;
@@ -61,6 +54,10 @@
           height: 120px;
           box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
         }
+        .divAction{
+          display: flex;
+          align-items: center;
+        }
       }
       .movie_desc{
         padding: 25px;
@@ -69,30 +66,8 @@
           color: #cfd6e1;
         }
       }
-      .movie_social{
-        height: 10%;
-        padding-left: 15px;
-        padding-bottom: 20px;
-        ul{
-          list-style: none;
-          padding: 0;
-          li{
-            display: inline-block;
-            color: rgba(255,255,255,0.4);
-            transition: color 0.3s;
-            transition-delay: 0.15s;
-            margin: 0 10px;
-            &:hover{
-              transition: color 0.3s;
-              color: rgba(255,255,255,0.8);
-            }
-            i{
-              font-size: 19px;
-              cursor: pointer;
-            }
-          }
-        }
-      }
+     
+
     }
     .blur_back{
       position: absolute;
@@ -158,84 +133,47 @@
       box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);
     }
   }
-  
-  .bright_back{
-    background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
-  }
-  
-  .wrapper {
-    margin:100px auto;
-    width:80%;
-    font-family:sans-serif;
-    color:#98927C;
-    font-size:14px;
-    line-height:24px;
-    max-width:600px;
-    min-width:340px;
-    overflow:hidden;
-  }
-  
-  .tabs {
+
+  // MENU
+.menuTab{
+    mat-tab-group{
+      text-align: center;
+    }
+    .nav-brand{
       justify-content: center;
-    li {
-      list-style:none;
-      float:left;
-      width:20%;
-    }
-    a {
-      display:block;
-      text-align:center;
-      text-decoration:none;
-      position:relative;
-      text-transform:uppercase;
-      color:#fff;
-      height:70px;
-      line-height:90px;
-      background:linear-gradient(165deg,transparent 29%, #98927C 30%);
-      
-      &:hover, &.active {
-         background: linear-gradient(165deg,transparent 29%, #F2EEE2 30%);
-         color:#98927C;
+      border-bottom: none;
+      margin-bottom: 40px;
+      .brand-item{
+        margin: 20px;
+        a{
+          text-decoration: none;
+          img{
+           width: 50px;
+           height: 50px;
+          }
+        }
       }
-      
-      &:before{
-        content:'';
-        position:absolute;
-        z-index:11;
-        left:100%;
-        top:-100%;
-        height:70px;
-        line-height:90px;
-        width:0;
-        border-bottom: 70px solid rgba(0,0,0,.1);
-          border-right: 7px solid transparent;
       }
-      &.active:before{
-        content:'';
-        position:absolute;
-        z-index:11;
-        left:100%;
-        top:-100%;
-        height:70px;
-        line-height:90px;
-        width:0;
-        border-bottom: 70px solid rgba(0,0,0,.2);
-          border-right: 20px solid transparent;
-      }
-     
-    }
+    .brand-content{
+      .nav-rap{
+        justify-content: flex-start;
+        li{
+          margin:0 20px 20px 0;
+          a{
+            img{
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+     }
+     .time-content{
+       text-align: start;
+     }
   }
-  .tabgroup {
-    box-shadow:2px 2px 2px 2px rgba(0,0,0,.1);;
-    div {
-      padding:30px;
-      background:#F2EEE2;
-      box-shadow:0 3px 10px rgba(0,0,0,.3);
-    }
-  }
-  .clearfix:after {
-    content:"";
-    display:table;
-    clear:both;
-  }
+}
+    
+  
+ 
+
   

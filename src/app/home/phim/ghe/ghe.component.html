@@ -1,1 +1,3 @@
-<div data-seat="A1" class="row__seat"></div>
+<button (click)="chonGhe()" [ngClass]="{gheDaDat:ghe.TrangThai, gheDangChon: dangChon}"
+    class="btnGhe col-md-1">{{ghe.TenGhe}}</button>
+<br *ngIf="ghe.STT % 10 === 0" />

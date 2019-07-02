@@ -1,65 +1,158 @@
-<section class="detailMain row">
-    <div class="col col-12 col-sm-12  col-md-7 detailCard">
+<section class="detailMain">
+    <div class=" detailCard">
         <div class="movie_card" id="bright">
             <div class="info_section">
                 <div class="movie_header">
-                    <img class="locandina"
-                        src="https://movieplayer.net-cdn.it/t/images/2017/12/20/bright_jpg_191x283_crop_q85.jpg" />
-                    <h1>Bright</h1>
-                    <h4>2017, David Ayer</h4>
-                    <span class="minutes">117 min</span>
-                    <p class="type">Action, Crime, Fantasy</p>
+                    <img class="locandina" [src]="phimObj.HinhAnh" />
+                    <h1>{{phimObj.TenPhim}}</h1>
+                    <h5>{{phimObj.NgayKhoiChieu | date:'dd-MM-yyyy'}}</h5>
+                    <div class="divAction">
+                        <span class="minutes">{{phimObj.DanhGia}}<i class="ml-2 fa fa-star"
+                                aria-hidden="true"></i></span>
+                        <button class="btn btn-danger">Mua vé</button>
+                    </div>
                 </div>
                 <div class="movie_desc">
                     <p class="text">
-                        Set in a world where fantasy creatures live side by side with humans. A human cop is forced to
-                        work
-                        with an Orc to find a weapon everyone is prepared to kill for.
+                        {{phimObj.MoTa}}
                     </p>
                 </div>
-                <div class="movie_social">
-                    <ul>
-                        <li><i class="material-icons">share</i></li>
-                        <li><i class="material-icons"></i></li>
-                        <li><i class="material-icons">chat_bubble</i></li>
-                    </ul>
-                </div>
-
             </div>
-            <div class="blur_back bright_back"></div>
+            <div [ngStyle]="{'background-image':'url(' + phimObj.HinhAnh +')'}" class="blur_back"></div>
         </div>
     </div>
-    <div class="col col-md-5 tabMenu">
-        <div class="wrapper">
-            <ul class="tabs nav nav-pills clearfix">
-                <li><a data-toggle="pill" href="#lichchieu" class="active">Lịch chiếu</a></li>
-                <li><a data-toggle="pill" href="#thongtin">Thông tin</a></li>
-                <li><a data-toggle="pill" href="#danhgia">Đánh giá</a></li>
+</section>
+<section class="menuTab">
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Lịch chiếu" class="lichChieu">
+            <ul class="nav nav-tabs nav-brand">
+                <li class="active brand-item"><a data-toggle="tab" href="#bhd"><img
+                            ng-src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+                            src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"></a></li>
+                <li class="brand-item"><a data-toggle="tab" href="#galaxy"><img
+                            ng-src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"
+                            src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"></a></li>
+                <li class="brand-item"><a data-toggle="tab" href="#cinestar"><img
+                            ng-src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"
+                            src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"></a></li>
+                <li class="brand-item"><a data-toggle="tab" href="#cgv"><img
+                            ng-src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"
+                            src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"></a></li>
+                <li class="brand-item">
+                    <a data-toggle="tab" href="#lotte"><img
+                            ng-src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+                            src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png">
+                    </a>
+                </li>
             </ul>
-            <div id="first-tab-group" class="tabgroup tab-content">
-                <div class="tab-pane fade in active" id="lichchieu">
-                    <h2>Heading 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deserunt consectetur ratione id
-                        tempore laborum laudantium facilis reprehenderit beatae dolores ipsum nesciunt alias iusto dicta
-                        eius itaque blanditiis modi velit.</p>
+            <div class="tab-content brand-content">
+                <div id="bhd" class="tab-pane fade in active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="nav nav-rap nav-tabs row">
+                                    <li class="active col-md-12"><a data-toggle="tab" href="#t2">Thứ 2</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#t3">Thứ 3</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#t4">Thứ 4</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#t5">Thứ 5</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#t6">Thứ 6</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#t7">Thứ 7</a></li>
+                                    <li class="col-md-12"><a data-toggle="tab" href="#cn">Chủ nhật</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="tab-content time-content">
+                                    <div id="t2" class="tab-pane fade in active">
+                                        <app-time-table [timeList]="suatT2"></app-time-table>
+                                    </div>
+                                    <div id="t3" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatT3"></app-time-table>
+                                    </div>
+                                    <div id="t4" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatT4"></app-time-table>
+                                    </div>
+                                    <div id="t5" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatT5"></app-time-table>
+                                    </div>
+                                    <div id="t6" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatT6"></app-time-table>
+                                    </div>
+                                    <div id="t7" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatT7"></app-time-table>
+                                    </div>
+                                    <div id="cn" class="tab-pane fade">
+                                        <app-time-table [timeList]="suatCN"></app-time-table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="thongtin">
-                    <h2>Heading 2</h2>
-                    <p>Adipisci autem obcaecati velit natus quos beatae explicabo at tempora minima voluptates deserunt
-                        eum
-                        consectetur reiciendis placeat dolorem repellat in nam asperiores impedit voluptas iure
-                        repellendus
-                        unde eveniet accusamus ex.</p>
+                <div id="galaxy" class="tab-pane fade">
+                    <div class="container">
+
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="danhgia">
-                    <h2>Heading 3</h2>
-                    <p>Adipisci autem obcaecati velit natus quos beatae explicabo at tempora minima voluptates deserunt
-                        eum
-                        consectetur reiciendis placeat dolorem repellat in nam asperiores impedit voluptas iure
-                        repellendus
-                        unde eveniet accusamus ex.</p>
+                <div id="cinestar" class="tab-pane fade in active">
+                    <div class="container">
+
+                    </div>
+                </div>
+                <div id="cgv" class="tab-pane fade">
+                    <div class="container">
+
+                    </div>
+                </div>
+                <div id="lotte" class="tab-pane fade">
+                    <div class="container">
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </mat-tab>
+        <mat-tab label="Đánh giá">
+            <div class="container">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam amet placeat, alias inventore nisi
+                    impedit dolor quas accusantium tempore. Dolorem modi quaerat repudiandae nemo placeat nobis quam
+                    iste aut commodi hic temporibus facilis totam eligendi laborum dolores, ipsam minus tempora sequi
+                    veniam fuga consequuntur illo molestias. Saepe dolorum, enim adipisci accusantium voluptates modi
+                    doloribus doloremque eos eaque maiores beatae esse mollitia animi obcaecati dolor voluptas id quas
+                    officiis, voluptate asperiores recusandae vel? In odit nesciunt temporibus sit corrupti repellendus
+                    deleniti, voluptatum itaque corporis quidem ad molestias quis unde, animi odio enim necessitatibus
+                    adipisci vero eius voluptatibus. Velit praesentium eos consequatur. Eaque, eius. Facilis dolores
+                    tempore nesciunt perspiciatis, consequatur ut odit fugit quae veniam, voluptas debitis magnam
+                    consequuntur veritatis eaque porro sint iste reiciendis. Ad, quod expedita? Inventore similique a
+                    suscipit repudiandae. Ratione, quia? Non ut in facere nostrum inventore placeat incidunt minima id
+                    dolores illum suscipit modi reprehenderit voluptatum, libero beatae, alias saepe exercitationem
+                    nihil nesciunt at voluptate iste repudiandae! Adipisci delectus possimus consequuntur, odio
+                    perspiciatis repudiandae alias aperiam quod id fuga quidem quo aspernatur numquam! Voluptates
+                    nostrum expedita dignissimos illo pariatur repellendus veniam at, porro exercitationem id quia saepe
+                    quisquam dolorem, voluptatum laudantium corporis provident cupiditate fugit? Dolore nihil, ipsa
+                    laudantium tempore reiciendis maiores exercitationem nisi, pariatur quod magnam quia. Explicabo
+                    culpa harum itaque exercitationem veniam unde est tenetur reprehenderit voluptas nesciunt adipisci,
+                    mollitia sint architecto dolores esse ex laborum quo? Sed, quasi. Rerum, ipsam enim autem itaque
+                    amet quis excepturi nihil ipsum. Ab minus repellat, neque asperiores eius exercitationem veniam
+                    sequi labore nobis fuga quidem, molestiae dolorum quod quis? Ex, cum, sit esse repellendus modi
+                    quibusdam ab quam minus, dolores hic temporibus voluptatibus reiciendis impedit optio consequuntur
+                    sint? Possimus eveniet ducimus recusandae, quam voluptates animi, laboriosam debitis repellendus
+                    est, facilis fuga exercitationem. Recusandae quos quam omnis corrupti, porro iure eos possimus quod
+                    facere voluptatibus harum tenetur voluptates quia culpa tempore eum beatae nulla iusto natus
+                    delectus! Nulla nostrum minima vero nemo fuga mollitia. Quia natus aspernatur sunt corrupti ipsam
+                    veniam vitae ipsum facilis at? Velit ab veritatis doloremque sunt reiciendis ullam provident
+                    excepturi corporis minima eius laborum, iure explicabo quasi porro. Nobis explicabo saepe magni ab
+                    sed modi et minus qui veritatis ratione quos quasi asperiores voluptas iure beatae ullam nam, autem
+                    expedita ut maxime dolorem. Adipisci, placeat neque illo aliquid, ab excepturi corporis alias eaque
+                    iste asperiores, minima consequatur architecto dolor. Sint ad consectetur doloribus consequatur
+                    tenetur accusantium ullam harum maxime magni laboriosam obcaecati libero blanditiis tempora, quos
+                    est delectus fugiat odio mollitia. Neque, deleniti laudantium! Nisi necessitatibus asperiores in
+                    nulla hic suscipit. Harum atque, nemo eveniet tempore consectetur tempora quidem aut architecto
+                    dolores iusto blanditiis consequuntur voluptas soluta enim fugiat necessitatibus id, adipisci vel
+                    laborum est ut! Iure ex adipisci accusantium! Corrupti necessitatibus nemo voluptatum laborum
+                    repellat, illum autem consequuntur accusantium quibusdam sed saepe praesentium nulla. Rem ut tempore
+                    dolorem quos asperiores ipsam odio. Ut blanditiis eius eligendi aspernatur omnis numquam repudiandae
+                    fugiat sequi, nihil fugit quibusdam distinctio exercitationem vel tempora alias nisi nemo vero
+                    optio.</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 </section>
