@@ -21,7 +21,6 @@ let httpOption = {
 export class FormReactiveComponent implements OnInit {
 
   idPhim: any;
-
   condition: boolean = true;
   changeState: boolean = false;
 

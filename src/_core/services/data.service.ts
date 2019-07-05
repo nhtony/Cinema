@@ -36,6 +36,17 @@ export class DataService {
     );
   }
 
+  delete(uri: string): Observable<any> {
+    return this.http.delete(urlAPI + '/' + uri).pipe(
+      tap(
+        () => { },
+        catchError(err => {
+          return this.handleError(err);
+        })
+      )
+    );
+  }
+
   handleError(err) {
     console.log(err);
     return err;

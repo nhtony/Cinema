@@ -12,7 +12,7 @@ import { ActivatedRoute } from "@angular/router";
 export class FormAdminComponent implements OnInit {
 
   genaralForm: FormGroup;
-
+  condition: boolean = true;
   idUser: any;
 
   constructor(private dataService: DataService, private shareDataService: ShareDataService, private activatedRoute: ActivatedRoute) { }
@@ -21,6 +21,7 @@ export class FormAdminComponent implements OnInit {
     this.createForm();
     this.getParams();
     this.resetForm();
+    this.getListUser();
   }
 
 
@@ -49,7 +50,7 @@ export class FormAdminComponent implements OnInit {
       MaNhom: 'GP10',
       MaLoaiNguoiDung: this.genaralForm.value.loainguoidung,
     }
-    let uri: string = `QuanLyNguoiDung/ThemNguoiDung`
+    let uri: string = this.condition ? `QuanLyNguoiDung/ThemNguoiDung` : `QuanLyNguoiDung/CapNhatThongTin`;
     this.dataService.post(uri, objUser).subscribe((res: any) => {
       if (typeof res === 'object') {
         Swal.fire('Thành công !!!');
@@ -64,21 +65,22 @@ export class FormAdminComponent implements OnInit {
 
   getParams() {
     this.idUser = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.idUser !== null) {
+      this.condition = false;
+    }
   }
 
 
-  getListMovie() {
-    this.shareDataService.shareListMovie.subscribe((res: any) => {
+  getListUser() {
+    this.shareDataService.shareListUser.subscribe((res: any) => {
       res.map((item) => {
-        if (item.MaPhim == this.idPhim) {
+        if (item.TaiKhoan == this.idUser) {
           this.genaralForm = new FormGroup({
-            'maphim': new FormControl(item.MaPhim),
-            'tenphim': new FormControl(item.TenPhim),
-            'manhom': new FormControl(item.MaNhom),
-            'trailer': new FormControl(item.Trailer),
-            'ngaykhoichieu': new FormControl(item.NgayKhoiChieu),
-            'mota': new FormControl(item.MoTa),
-            'danhgia': new FormControl(item.DanhGia)
+            'taikhoan': new FormControl(item.TaiKhoan),
+            'matkhau': new FormControl(item.MatKhau),
+            'email': new FormControl(item.Email),
+            'sdt': new FormControl(item.SoDT),
+            'loainguoidung': new FormControl(item.MaLoaiNguoiDung),
           })
         }
       });
@@ -90,7 +92,6 @@ export class FormAdminComponent implements OnInit {
       'taikhoan': new FormControl(null),
       'matkhau': new FormControl(null),
       'email': new FormControl(null),
-      'trailer': new FormControl(null),
       'sdt': new FormControl(null),
       'loainguoidung': new FormControl(null),
     });

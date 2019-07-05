@@ -4,14 +4,13 @@ import { DanhSachNguoiDungComponent } from './danh-sach-nguoi-dung.component';
 import { TableModule } from '../table/table.module';
 import { DanhSachNguoiDungRoutingModule } from './danh-sach-nguoi-dung-routing.module';
 
-
 @NgModule({
   declarations: [DanhSachNguoiDungComponent],
   exports:[DanhSachNguoiDungComponent],
   imports: [
     CommonModule,
     TableModule,
-    DanhSachNguoiDungRoutingModule
+    DanhSachNguoiDungRoutingModule,
   ]
 })
 export class DanhSachNguoiDungModule { }
