@@ -1,11 +1,7 @@
-<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
-  <div *nguCarouselDef="let item;" class="item">
-    <img src="{{item}}" alt="">
-  </div>
-  <button NguCarouselNext class="rightRs">></button>
-  <button NguCarouselPrev class="leftRs">
-    <</button> <ul class="myPoint" NguCarouselPoint>
-      <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint"
-        (click)="myCarousel.moveTo(j)"></li>
-      </ul>
-</ngu-carousel>
+<section class="slider">
+    <owl-carousel [options]="mySlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+        <div class="item" *ngFor="let image of mySlideImages;let i = index">
+            <img src={{image}} />
+        </div>
+    </owl-carousel>
+</section>

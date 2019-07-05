@@ -29,7 +29,7 @@ export class DanhSachPhimComponent implements OnInit {
       this.shareDataSerVice.shareDataListMovie(res);
       this.mangPhim.push(this.danhSachPhim);
     });
- 
+
   }
   ngOnDestroy() {
     this.subListMovie.unsubscribe();

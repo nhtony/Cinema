@@ -9,6 +9,9 @@ export class ShareDataService {
   private listMovie = new BehaviorSubject([] as any);
   shareListMovie = this.listMovie.asObservable();
 
+  private listUser = new BehaviorSubject([] as any);
+  shareListUser = this.listUser.asObservable();
+
   private listTime = new BehaviorSubject([] as any);
   shareListTime = this.listTime.asObservable();
   
@@ -41,6 +44,10 @@ export class ShareDataService {
 
   shareDataListMovie(listMovie: any) {
     this.listMovie.next(listMovie);
+  }
+
+  shareDataListUser(listUser: any) {
+    this.listUser.next(listUser);
   }
 
   shareDataListTime(listTime: any) {

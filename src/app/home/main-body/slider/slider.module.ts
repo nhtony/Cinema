@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SliderComponent } from './slider.component';
-import { NguCarouselModule } from '@ngu/carousel';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [SliderComponent],
-  exports:[SliderComponent],
+  exports: [SliderComponent],
   imports: [
     CommonModule,
-    NguCarouselModule
+    OwlModule
   ]
-  
 })
 export class SliderModule {
-  
- }
+ 
+}

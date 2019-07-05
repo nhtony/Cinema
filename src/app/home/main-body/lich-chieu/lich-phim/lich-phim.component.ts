@@ -21,8 +21,6 @@ export class LichPhimComponent implements OnInit {
     const uri = `QuanLyPhim/LayChiTietPhim?MaPhim=${this.phim.MaPhim}`;
     this.subDetail = this.dataService.get(uri).subscribe((res) => {
       this.thoigian = res.LichChieu[0].NgayChieuGioChieu;
-      console.log(this.thoigian);
-      
     });
 
     

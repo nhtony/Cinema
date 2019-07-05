@@ -57,6 +57,8 @@ export class PhimComponent implements OnInit {
         return day;
       case 'weekday':
         let weekday = today.getUTCDay();
+        console.log(weekday);
+
         return weekday;
       case 'today':
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -68,28 +70,29 @@ export class PhimComponent implements OnInit {
 
   chiaThu(mang) {
     mang.map((res) => {
+      console.log(res.NgayChieuGioChieu);
       let date = this.getTime('weekday', res.NgayChieuGioChieu);
       switch (date) {
         case 0:
-          this.suatT2.push(res);
+          this.suatCN.push(res);
           break;
         case 1:
-          this.suatT3.push(res);
+          this.suatT2.push(res);
           break;
         case 2:
-          this.suatT4.push(res);
+          this.suatT3.push(res);
           break;
         case 3:
-          this.suatT5.push(res);
+          this.suatT4.push(res);
           break;
         case 4:
-          this.suatT6.push(res);
+          this.suatT5.push(res);
           break;
         case 5:
-          this.suatT7.push(res);
+          this.suatT6.push(res);
           break;
         case 6:
-          this.suatCN.push(res);
+          this.suatT7.push(res);
           break;
         default:
           break;

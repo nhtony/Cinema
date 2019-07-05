@@ -11,13 +11,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class NavBarComponent implements OnInit {
 
-  private isLogin: any = {
-    status: true,
-  };
-
-  private isSignUp: any = {
-    status: false,
-  };
 
   condition: boolean = false;
   constructor(private shareDataService: ShareDataService, private _authService: AuthService, private spinner: NgxSpinnerService) { }
@@ -26,16 +19,21 @@ export class NavBarComponent implements OnInit {
     this.shareDataService.shareCheckLoginState.subscribe((res) => {
       this.condition = res.status;
     });
-
   }
 
   dangNhap() {
-    this.shareDataService.shareDataActionState(this.isLogin);
+    let objStatus: any = {
+      status: true,
+    };
+    this.shareDataService.shareDataActionState(objStatus);
     this.shareDataService.shareDataPlayState(false);
   }
-  
+
   dangKy() {
-    this.shareDataService.shareDataActionState(this.isSignUp);
+    let objStatus: any = {
+      status: false,
+    };
+    this.shareDataService.shareDataActionState(objStatus);
     this.shareDataService.shareDataPlayState(false);
   }
 
@@ -43,4 +41,5 @@ export class NavBarComponent implements OnInit {
     this._authService.logout();
     this.condition = false;
   }
+
 }

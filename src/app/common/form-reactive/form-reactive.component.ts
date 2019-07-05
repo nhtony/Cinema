@@ -91,7 +91,7 @@ export class FormReactiveComponent implements OnInit {
           alert("Success !!!");
         }
       }
-      else{
+      else {
         alert("Fail");
       }
     });

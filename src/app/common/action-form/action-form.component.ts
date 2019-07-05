@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareDataService } from 'src/_core/services/share-data.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from 'src/_core/services/data.service';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 import { AuthService } from '../../../_core/services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-action-form',
   templateUrl: './action-form.component.html',
@@ -17,26 +18,53 @@ export class ActionFormComponent implements OnInit {
 
   actionForm: FormGroup;
 
-  private logined: any = {
+  private isLoggedIn: any = {
     status: true,
   };
 
+  btnTitle = '';
+
+  private formLoginObj = {
+    taikhoan: new FormControl('', Validators.required),
+    matkhau: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+  }
+
+  private formRegisObj = {
+    taikhoan: new FormControl('', Validators.required),
+    matkhau: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    sdt: new FormControl('', Validators.required),
+  }
+
   constructor(private dataService: DataService, private shareDataService: ShareDataService, private _authService: AuthService, private spinner: NgxSpinnerService) { }
 
+
   ngOnInit() {
-    this.actionForm = new FormGroup({
-      taikhoan: new FormControl(),
-      matkhau: new FormControl(),
-      email: new FormControl(),
-      sdt: new FormControl(),
-    });
+
     this.shareDataService.shareActionState.subscribe((res: any) => {
       this.condition = res.status;
+      this.actionForm = (this.condition) ? new FormGroup(this.formLoginObj) : new FormGroup(this.formRegisObj);
+      this.btnTitle = (this.condition) ? 'Đăng nhập' : "Đăng ký";
     });
+
+    this.shareDataService.shareActionState.subscribe((res) => {
+      if (typeof (res) === 'object') {
+        this.resetForm();
+      }
+    });
+    
   }
 
   actionFormHandle(user?: any) {
-
     let objUser = {
       TaiKhoan: this.actionForm.value.taikhoan,
       MatKhau: this.actionForm.value.matkhau,
@@ -50,14 +78,14 @@ export class ActionFormComponent implements OnInit {
 
     this.dataService.post(uri, objUser).subscribe((res: any) => {
       $("#btnDong").trigger("click");
-      this.resetForm();
       if (this.condition) {
         if (res === "Tài khoản hoặc mật khẩu không đúng !") {
           alert(res);
-        } else {
+        }
+        else {
           this._authService.login();
           if (this._authService.isAuthenticated()) {
-            this.shareDataService.shareDataCheckLoginState(this.logined);
+            this.shareDataService.shareDataCheckLoginState(this.isLoggedIn);
             this.shareDataService.shareDataAccount(objUser);
           }
         }
@@ -73,13 +101,18 @@ export class ActionFormComponent implements OnInit {
     })
   }
 
+
   resetForm() {
     this.actionForm = new FormGroup({
-      'taikhoan': new FormControl(null),
-      'matkhau': new FormControl(null),
-      'email': new FormControl(null),
-      'sdt': new FormControl(null),
+      taikhoan: new FormControl(null),
+      matkhau: new FormControl(null),
+      email: new FormControl(null),
+      sdt: new FormControl(null),
     });
+  }
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.actionForm.controls[controlName].hasError(errorName);
   }
 
 }

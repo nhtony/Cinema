@@ -3,7 +3,7 @@
   <div class="mainHeader">
     <button class="openbtn" style="display:block" (click)="openNav()">{{content}}</button>
   </div>
-  
+
   <!-- Body -->
   <div class="bodyMain">
     <router-outlet></router-outlet>
@@ -22,10 +22,10 @@
     </div>
   </div>
   <div class="general">
-    <a routerLink="">Dashboard</a>
-    <a routerLink="/admin/danh-sach-phim">Quản Lý Phim</a>
-    <a routerLink="">Quản Lý User</a>
-    <a routerLink="">Quản Lý Đặt Vé</a>
+    <a routerLink="/admin">Dashboard</a>
+    <a (click)="getMovie()" routerLink="/admin/danh-sach-phim">Quản Lý Phim</a>
+    <a (click)="getUser()" routerLink="/admin/danh-sach-nguoi-dung">Quản Lý User</a>
+    <a routerLink="/admin">Quản Lý Đặt Vé</a>
   </div>
   <div class="sign-out">
     <button (click)="signOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign-Out</button>

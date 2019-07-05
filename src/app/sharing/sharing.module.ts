@@ -12,22 +12,23 @@ import { FormReactiveComponent } from '../common/form-reactive/form-reactive.com
 
 import {NavBarComponent} from '../common/nav-bar/nav-bar.component';
 
-import { MovieCardComponent } from '../common/movie-card/movie-card.component';
-
 import { ModalComponent } from '../common/modal/modal.component';
 
 import { ActionFormComponent } from '../common/action-form/action-form.component';
 
 import { VideoComponent } from '../common/video/video.component';
+
 import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { TimeTableComponent } from '../home/phim/time-table/time-table.component';
+import { FormAdminComponent } from '../common/form-admin/form-admin.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, MaterialModule, ReactiveFormsModule,NgxSpinnerModule],
 
-  declarations: [ FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent],
+  declarations: [ FormReactiveComponent,NavBarComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent,FormAdminComponent],
 
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,MovieCardComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent]
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, FormReactiveComponent,NavBarComponent,ModalComponent,ActionFormComponent,VideoComponent,TimeTableComponent,FormAdminComponent]
   
 })
 export class SharingModule { }

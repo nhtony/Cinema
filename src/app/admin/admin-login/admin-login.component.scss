@@ -1,0 +1,34 @@
+.admin-login{
+   
+    .container{
+        padding: 250px 0;
+        .mat-card-header{
+            text-align: center;
+        }
+        .mat-card-content{
+            background: red;
+            #adLoginFrom{
+                width: 30%;
+                margin: 0 auto;
+                padding: 20px;
+                .mat-form-field{
+                    display: block;
+                }
+                fieldset{
+                    text-align: end;
+                    margin-top: 20px;
+                   
+            }
+            .mat-card-actions{
+                button{
+                    margin-top: 20px;
+                }
+            }
+            
+            }
+        }
+       
+       
+    }
+}
+

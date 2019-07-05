@@ -3,9 +3,8 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from '@angular/router';
 import { DataService } from 'src/_core/services/data.service';
-let ELEMENT_DATA = [
+import { ShareDataService } from 'src/_core/services/share-data.service';
 
-];
 /**
  * @title Table with filtering
  */
@@ -16,36 +15,54 @@ let ELEMENT_DATA = [
 })
 
 export class TableComponent {
-  @Input() phims;
-  mangPhim = [];
-  idPhim: any;
+
+  @Input() mang;
+
+  option = {
+    isUser: false
+  }
+
+  ELEMENT_DATA = [
+
+  ];
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private router: Router, private dataService: DataService) {
-
+  constructor(private router: Router, private dataService: DataService, private shareDataService: ShareDataService) {
   }
 
   ngOnInit() {
-    this.pushData();
+    this.shareDataService.shareActionState.subscribe((res) => {
+      if (res !== null) {
+        this.option.isUser = res.status;
+      }
+    });
+    this.pushData(this.mang);
   }
 
-  pushData() {
-    this.phims.forEach(element => {
-      ELEMENT_DATA.push(element);
+  pushData(mang) {
+    mang.forEach(element => {
+      this.ELEMENT_DATA.push(element);
       this.dataSource.paginator = this.paginator;
     });
   }
 
-  themPhim() {
-    this.router.navigate(["/admin/them-phim",], {});
-  }
-  
-  postIdFilm(maPhim) {
-    this.router.navigate(["/admin/cap-nhat-phim/", maPhim], {});
+  them() {
+    if (this.option.isUser) {
+      this.router.navigate(["/admin/them-nguoi-dung"]);
+    }
+    else {
+      this.router.navigate(["/admin/them-phim"]);
+    }
   }
 
-  displayedColumns: string[] = ['select', 'MaNhom', 'MaPhim', 'TenPhim', 'NgayKhoiChieu', 'HanhDong'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  postIdFilm(maPhim) {
+    this.router.navigate(["/admin/cap-nhat-phim/", maPhim]);
+  }
+
+  displayedColumns: string[] = (this.option.isUser) ? ['select', 'TaiKhoan', 'MaLoaiNguoiDung', 'Email', 'SoDT', 'HanhDong'] : ['select', 'MaNhom', 'MaPhim', 'TenPhim', 'NgayKhoiChieu', 'HanhDong'];
+
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   selection = new SelectionModel(true, []);
 
   applyFilter(filterValue: string) {

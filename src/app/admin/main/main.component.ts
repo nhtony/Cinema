@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/_core/services/auth.service';
+import { ShareDataService } from 'src/_core/services/share-data.service';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,7 @@ export class MainComponent implements OnInit {
   mainMar: string = '';
   isOpen: boolean = false;
   content: string = 'Menu';
-  constructor(private _authservice: AuthService) { }
+  constructor(private _authservice: AuthService, private shareDataService: ShareDataService) { }
 
   ngOnInit() {
 
@@ -29,6 +30,20 @@ export class MainComponent implements OnInit {
       this.sidebarWidth = '0';
       this.mainMar = '0';
     }
+  }
+
+  getUser() {
+    let objStatus: any = {
+      status: true,
+    };
+    this.shareDataService.shareDataActionState(objStatus);
+  }
+
+  getMovie() {
+    let objStatus: any = {
+      status: false,
+    };
+    this.shareDataService.shareDataActionState(objStatus);
   }
 
   signOut() {

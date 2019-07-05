@@ -16,14 +16,85 @@ export class ShowerComponent implements OnInit {
     isPlaying: true
   }
 
+  mySlideOptions = { center: true, items: 5, dots: true, nav: true, autoplay: true };
+
+  listPhimSapChieu: any = [];
+
+  listPhimDangChieu: any = [];
+
+  listPhim: any = [];
+
+  showState: boolean;
+
+  
+
   ngOnInit() {
+    this.getListMovie();
     this.data.shareDataShowState(this.showOjb);
+  }
+
+  getListMovie() {
+      this.data.shareListMovie.subscribe((res) => {
+        if (res.length > 0) {
+          this.phanLoaiPhim(res);
+          this.pushPhimDangChieu();
+        }
+      });
+  }
+
+  getTime(time: string, date: any) {
+    let today = (date === null) ? new Date() : new Date(date);
+    switch (time) {
+      case 'year':
+        let year = today.getFullYear();
+        return year
+      case 'month':
+        let month = today.getMonth() + 1;
+        return month;
+      case 'day':
+        let day = today.getDate();
+        return day;
+      default:
+        break;
+    }
+  }
+
+  phanLoaiPhim(mangPhim) {
+    mangPhim.forEach(element => {
+
+      let filmYear = this.getTime('year', element.NgayKhoiChieu);
+      let filmMonth = this.getTime('month', element.NgayKhoiChieu);
+      let currentYear = this.getTime('year', null);
+      let curretMonth = this.getTime('month', null);
+
+      if (filmYear > currentYear) {
+        this.listPhimSapChieu.push(element);
+      }
+      else {
+        if (filmYear === currentYear) {
+          if (filmMonth > curretMonth) {
+            this.listPhimSapChieu.push(element);
+          }
+          else {
+            this.listPhimDangChieu.push(element);
+          }
+        }
+        else {
+          this.listPhimDangChieu.push(element);
+        }
+      }      
+    });
+  }
+
+  pushPhimDangChieu() {
+    this.data.shareDataListPhimDangChieu(this.listPhimDangChieu);
   }
 
   showPhimDangChieu() {
     this.showOjb.isPlaying = true;
     this.data.shareDataShowState(this.showOjb);
   }
+
   showPhimSapChieu() {
     this.showOjb.isPlaying = false;
     this.data.shareDataShowState(this.showOjb);

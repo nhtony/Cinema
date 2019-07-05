@@ -7,8 +7,9 @@ import { ShowerModule } from './shower/shower.module';
 import { SliderModule } from './slider/slider.module';
 import { LichChieuModule } from './lich-chieu/lich-chieu.module';
 
+
 @NgModule({
-  declarations: [MainBodyComponent],
+  declarations: [MainBodyComponent,],
   exports:[],
   imports: [
     CommonModule,

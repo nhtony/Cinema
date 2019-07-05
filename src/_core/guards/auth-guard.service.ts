@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-
   constructor(private _authService: AuthService, private _router: Router) {
   }
 
@@ -14,10 +13,7 @@ export class AuthGuard implements CanActivate {
     if (this._authService.isAuthenticated()) {
       return true;
     }
-
-    // navigate to login page
-    this._router.navigate(['/home']);
-    // you can save redirect url so after authing we can move them back to the page they requested
+    this._router.navigate(['/admin-login']); 
     return false;
   }
 

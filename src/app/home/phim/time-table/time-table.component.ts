@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShareDataService } from 'src/_core/services/share-data.service';
 
 @Component({
   selector: 'app-time-table',
@@ -13,6 +12,8 @@ export class TimeTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.timeList);
+    
   }
 
 }

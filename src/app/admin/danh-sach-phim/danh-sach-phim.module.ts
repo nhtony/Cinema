@@ -3,18 +3,17 @@ import { CommonModule } from '@angular/common';
 import { DanhSachPhimComponent } from './danh-sach-phim.component';
 import { DanhSachPhimRoutingModule } from './danh-sach-phim-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TableComponent } from '../table/table.component';
-import { MaterialModule } from 'src/_core/sharedata/material.modules';
+import { TableModule } from '../table/table.module';
 
 @NgModule({
-  declarations: [DanhSachPhimComponent,TableComponent],
-  exports:[FormsModule,TableComponent],
+  declarations: [DanhSachPhimComponent],
+  exports:[FormsModule],
   imports: [
     CommonModule,
     DanhSachPhimRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    TableModule
   ]
 })
 export class DanhSachPhimModule { }

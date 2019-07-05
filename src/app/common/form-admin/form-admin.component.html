@@ -1,0 +1,26 @@
+<div class="container">
+  <form id="addUserForm" [formGroup]="genaralForm" (ngSubmit)="genaralFormHandle()">
+    <h3>Thêm mới</h3>
+    <fieldset>
+      <input formControlName="taikhoan" placeholder="Tài khoản" type="text">
+    </fieldset>
+    <fieldset>
+      <input formControlName="matkhau" placeholder="Mật khẩu" type="text">
+    </fieldset>
+    <fieldset>
+      <input formControlName="email" placeholder="Email" type="text">
+    </fieldset>
+    <fieldset>
+      <input formControlName="sdt" placeholder="Số ĐT" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+    </fieldset>
+    <fieldset>
+      <select formControlName="loainguoidung">
+        <option value="KhachHang">Khách hàng</option>
+        <option value="QuanTri">Quản trị</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <button type="submit" id="contact-submit">Submit</button>
+    </fieldset>
+  </form>
+</div>

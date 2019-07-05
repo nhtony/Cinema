@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/_core/services/data.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 
@@ -30,12 +30,11 @@ export class PhongVeComponent implements OnInit {
   ];
 
 
-  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private data: ShareDataService) {
+  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private data: ShareDataService,private _router: Router) {
 
   }
 
   ngOnInit() {
-    this.getParams();
     this.getDanhSachGhe();
     this.getAccount();
   }
@@ -45,13 +44,12 @@ export class PhongVeComponent implements OnInit {
   }
 
   getDanhSachGhe() {
+    this.getParams();
     const uri = `QuanLyPhim/ChiTietPhongVe?MaLichChieu=${this.maLichChieu}`;
     this.dataService.get(uri).subscribe((res) => {
       this.seatMaps = res.DanhSachGhe;
       this.doiTenGhe();
     })
-    console.log(this.maLichChieu);
-
   }
 
   doiTenGhe() {
@@ -86,11 +84,11 @@ export class PhongVeComponent implements OnInit {
     }
     if (objGhe.dangChon) {
       this.danhSachGheDangChon.push(objGhe.ghe);
-      this.tienGhe += parseInt(objGhe.ghe.GiaVe);
-      this.tinhTongTien(); 
       objVe.MaGhe = objGhe.ghe.MaGhe;
       objVe.GiaVe = objGhe.ghe.GiaVe;
       this.danhDachVe.push(objVe);
+      this.tienGhe += parseInt(objGhe.ghe.GiaVe);
+      this.tinhTongTien(); 
     }
     else {
       this.danhSachGheDangChon.map((item, index) => {
@@ -132,6 +130,7 @@ export class PhongVeComponent implements OnInit {
     }
     this.dataService.post(uri,ve).subscribe((res) => {
       alert(res);
+      this._router.navigate(['/home']);
     });
   }
 

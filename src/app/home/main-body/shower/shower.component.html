@@ -14,10 +14,20 @@
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active show" id="dangChieu">
-          <app-carousel></app-carousel>
+          <owl-carousel [options]="mySlideOptions" [items]="listPhimDangChieu"
+            [carouselClasses]="['owl-theme','sliding','row']">
+            <div class="itemPhimDangChieu mr-2" *ngFor="let item of listPhimDangChieu;let i = index">
+              <app-movie-card [phim]="item"></app-movie-card>
+            </div>
+          </owl-carousel>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="sapChieu">
-          <app-carousel></app-carousel>
+          <owl-carousel [options]="mySlideOptions" [items]="listPhimSapChieu"
+            [carouselClasses]="['owl-theme','sliding','row']">
+            <div class="itemPhimDangChieu mr-2" *ngFor="let item of listPhimSapChieu;let i = index">
+              <app-movie-card [phim]="item"></app-movie-card>
+            </div>
+          </owl-carousel>
         </div>
       </div>
     </div>

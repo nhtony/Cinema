@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShowerComponent } from './shower.component';
 import { SharingModule } from 'src/app/sharing/sharing.module';
-import { NguCarouselModule } from '@ngu/carousel';
-import { CarouselComponent } from 'src/app/common/carousel/carousel.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
+
 @NgModule({
-  declarations: [ShowerComponent,CarouselComponent],
-  exports: [ShowerComponent,CarouselComponent],
+  declarations: [ShowerComponent,MovieCardComponent],
+  exports: [ShowerComponent,MovieCardComponent],
   imports: [
     CommonModule,
     SharingModule,
-    NguCarouselModule
+    OwlModule
   ]
 })
 export class ShowerModule { }
