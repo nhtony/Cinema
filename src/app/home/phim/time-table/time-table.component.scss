@@ -1,0 +1,17 @@
+.row__showtimes{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid  #6c757d;
+    img{
+        margin: 20px;
+        width: 150px;
+        height: 150px;
+    }
+    h6{
+        text-align: start;
+    }
+    .btnTime{
+        text-align: start;
+        margin-bottom: 10px;
+    }
+}

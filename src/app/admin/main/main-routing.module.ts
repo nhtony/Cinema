@@ -8,7 +8,6 @@ import { DanhSachNguoiDungModule } from '../danh-sach-nguoi-dung/danh-sach-nguoi
 import { ThemNguoiDungModule } from '../them-nguoi-dung/them-nguoi-dung.module';
 import { CapNhatNguoiDungModule } from '../cap-nhat-nguoi-dung/cap-nhat-nguoi-dung.module';
 
-
 const routes: Routes = [
     {
         path: '', component: MainComponent, children: [

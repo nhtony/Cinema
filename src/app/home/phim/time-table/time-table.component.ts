@@ -7,13 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TimeTableComponent implements OnInit {
 
-  @Input() timeList;
-  
+  @Input() cumrap;
+  @Input() suat;
+  danhSachRap = [];
+  suatChieu: any;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.timeList);
-    
   }
 
 }

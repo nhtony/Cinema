@@ -32,7 +32,7 @@
 					}
 
 
-&.hvr-grow {
+		&.hvr-grow {
 	display: inline-block;
 	vertical-align: middle;
 	-webkit-transform: perspective(1px) translateZ(0);
@@ -60,15 +60,30 @@
 		background-color: $background_color_1;
 		color: $color_1;
 	}
-}
-	&.active{
+		}
+		&.active{
 		background-color: $background_color_1;
 		color: $color_1;
-	}
+		}
 				}
 				
 			}
 		}
+		.tab-content{
+			.tab-pane{
+				owl-carousel-child{
+					position: relative;
+					.owl-nav{
+						.owl-prev{
+							position: absolute;
+							top: 50%;
+							left: 0;
+						}
+					}
 		
+				}
+			}
+		}
+	
 	}
 }

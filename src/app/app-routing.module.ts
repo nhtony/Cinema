@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthGuard } from 'src/_core/guards/auth-guard.service';
+import { AdminGuard } from 'src/_core/guards/auth-guard.service';
 import { AdminLoginModule } from './admin/admin-login/admin-login.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => HomeModule },
-  { path: 'admin', loadChildren: () => AdminModule, canActivate:[AuthGuard]},
+  { path: 'admin', loadChildren: () => AdminModule, canActivate:[AdminGuard]},
   { path: 'admin-login', loadChildren: () => AdminLoginModule},
   { path: '**', component: PageNotFoundComponent }
 ];

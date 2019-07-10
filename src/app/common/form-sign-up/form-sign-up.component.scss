@@ -1,0 +1,22 @@
+.sign-up-container {
+    form{
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        mat-form-field{
+            display: block;
+        }
+        mat-card-actions{
+            text-align: right;
+            button{
+                margin-left: 10px;
+                margin-top: 20px;
+            }
+        }
+      }
+      
+    }
+  
+  .example-container > * {
+    width: 100%;
+  }

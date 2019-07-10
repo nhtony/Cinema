@@ -11,7 +11,6 @@ import { ShareDataService } from 'src/_core/services/share-data.service';
 export class DanhSachNguoiDungComponent implements OnInit {
 
 
-  danhSachNguoiDung = [];
   mangNguoiDung = [];
   subListUser: Subscription;
 
@@ -24,9 +23,8 @@ export class DanhSachNguoiDungComponent implements OnInit {
   getDanhSachNguoiDung() {
     const uri = `QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP10`;
     this.subListUser = this.dataSerVice.get(uri).subscribe((res: any) => {
-      this.danhSachNguoiDung = res;
-      this.mangNguoiDung.push(this.danhSachNguoiDung);
-      this.data.shareDataListUser(this.danhSachNguoiDung);
+      this.mangNguoiDung.push(res);
+      this.data.shareDataListUser(res);
     });
   }
 

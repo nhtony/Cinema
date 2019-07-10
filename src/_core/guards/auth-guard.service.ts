@@ -4,6 +4,22 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs';
 
 @Injectable()
+export class AdminGuard implements CanActivate {
+
+  constructor(private _authService: AuthService, private _router: Router) {
+  }
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    if (this._authService.isAuthenticatedAdmin()) {
+      return true;
+    }
+    this._router.navigate(['/admin-login']);
+    return false;
+  }
+
+}
+
+@Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(private _authService: AuthService, private _router: Router) {
@@ -13,7 +29,7 @@ export class AuthGuard implements CanActivate {
     if (this._authService.isAuthenticated()) {
       return true;
     }
-    this._router.navigate(['/admin-login']); 
+    this._router.navigate(['/home']);
     return false;
   }
 

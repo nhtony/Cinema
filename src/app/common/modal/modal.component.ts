@@ -9,21 +9,13 @@ import * as $ from 'jquery';
 })
 export class ModalComponent implements OnInit {
 
-  modalTitle: string;
-  condition: boolean;
-  isPlayVideo: boolean;
-
   constructor(private shareDataService: ShareDataService) { }
 
   ngOnInit() {
     this.shareDataService.shareActionState.subscribe((res: any) => {
-      this.modalTitle = (res.status) ? 'ĐĂNG NHẬP' : 'ĐĂNG KÝ';
-      this.condition = (res.status);
+     
     });
 
-    this.shareDataService.sharePlayState.subscribe((res: any) => {
-      this.isPlayVideo = (res.status);
-    });
   }
 
   stop() {

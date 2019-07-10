@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CapNhatNguoiDungComponent } from './cap-nhat-nguoi-dung.component';
 import { CapNhatNguoiDungRoutingModule } from './cap-nhat-nguoi-dung-routing.module';
-import { SharingModule } from 'src/app/sharing/sharing.module';
+import { AdminFormModule } from '../admin-form/admin-form.module';
 
 @NgModule({
   declarations: [CapNhatNguoiDungComponent],
@@ -10,7 +10,7 @@ import { SharingModule } from 'src/app/sharing/sharing.module';
   imports: [
     CommonModule,
     CapNhatNguoiDungRoutingModule,
-    SharingModule
+    AdminFormModule
   ]
 })
 export class CapNhatNguoiDungModule { }

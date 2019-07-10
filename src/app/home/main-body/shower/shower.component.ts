@@ -16,30 +16,40 @@ export class ShowerComponent implements OnInit {
     isPlaying: true
   }
 
-  mySlideOptions = { center: true, items: 5, dots: true, nav: true, autoplay: true };
+  mySlideOptions = {
+    center: true, items: 5, dots: true, nav: true, autoplay: true, responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    }, loop: true,
+  };
 
   listPhimSapChieu: any = [];
 
   listPhimDangChieu: any = [];
 
-  listPhim: any = [];
-
-  showState: boolean;
-
-  
-
   ngOnInit() {
     this.getListMovie();
-    this.data.shareDataShowState(this.showOjb);
   }
 
   getListMovie() {
-      this.data.shareListMovie.subscribe((res) => {
-        if (res.length > 0) {
-          this.phanLoaiPhim(res);
-          this.pushPhimDangChieu();
-        }
-      });
+    this.data.shareListMovie.subscribe((res) => {
+      if (res.length > 0) {
+        this.phanLoaiPhim(res);
+      }
+    });
+    this.pushPhimDangChieu();
+    console.log(this.listPhimDangChieu);
+    this.pushIdPhim(this.listPhimDangChieu);
   }
 
   getTime(time: string, date: any) {
@@ -61,12 +71,10 @@ export class ShowerComponent implements OnInit {
 
   phanLoaiPhim(mangPhim) {
     mangPhim.forEach(element => {
-
       let filmYear = this.getTime('year', element.NgayKhoiChieu);
       let filmMonth = this.getTime('month', element.NgayKhoiChieu);
       let currentYear = this.getTime('year', null);
       let curretMonth = this.getTime('month', null);
-
       if (filmYear > currentYear) {
         this.listPhimSapChieu.push(element);
       }
@@ -82,12 +90,22 @@ export class ShowerComponent implements OnInit {
         else {
           this.listPhimDangChieu.push(element);
         }
-      }      
+      }
     });
   }
 
   pushPhimDangChieu() {
     this.data.shareDataListPhimDangChieu(this.listPhimDangChieu);
+   
+  }
+
+  pushIdPhim(mangPhim) {
+    let mangIdPhim = [];
+    mangPhim.map((res) => {
+      mangIdPhim.push(res.MaPhim);
+      this.data.shareDataMaPhim(mangIdPhim);
+     
+    });
   }
 
   showPhimDangChieu() {

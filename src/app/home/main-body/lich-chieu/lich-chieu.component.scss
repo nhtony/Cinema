@@ -1,15 +1,33 @@
 .lichChieu{
-    padding: 100px;
-    .brands{
-        .nav-brand{
-           list-style:none;
-            
+    padding: 70px;
+    h2{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .nav-brand{
+        justify-content: center;
+        list-style:none;
+        border-bottom: none;
+        margin-bottom: 35px;
+        .brand-item{
+            margin: 20px;
+            opacity: 0,7;
+            img{
+                width: 50px;
+                height: 50px;
+
+            }
+        }
+
+    }
+    .brand-content{
+        background-color: aquamarine;
+        border-radius: 10px;
+        .row{
+            padding: 30px;
         }
     }
-    .wrapper{
-        ul{
-            text-align: center;
-            list-style: none;
-        }
-    }
+}
+.active{
+    opacity: 1;
 }

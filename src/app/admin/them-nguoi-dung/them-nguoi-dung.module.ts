@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemNguoiDungComponent } from './them-nguoi-dung.component';
 import { ThemNguoiDungRoutingModule } from './them-nguoi-dung-routing.module';
-import { SharingModule } from 'src/app/sharing/sharing.module';
+import { AdminFormModule } from '../admin-form/admin-form.module';
 
 @NgModule({
   declarations: [ThemNguoiDungComponent],
@@ -10,7 +10,7 @@ import { SharingModule } from 'src/app/sharing/sharing.module';
   imports: [
     CommonModule,
     ThemNguoiDungRoutingModule,
-    SharingModule
+    AdminFormModule
   ]
 })
 export class ThemNguoiDungModule { }

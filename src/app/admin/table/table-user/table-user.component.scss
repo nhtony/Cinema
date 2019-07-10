@@ -1,0 +1,29 @@
+/* Structure */
+.row{
+    .mat-form-field {
+        width: 100%;
+       }
+       .colBtn{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-end;
+       }
+}
+table {
+    width: 100%;
+    background-color: transparent;
+
+    th{
+        color:black;
+        border-color: #dcdde1;
+    } 
+    td{
+        color:black;
+        border-color: #dcdde1;
+    }
+
+}
+.mat-paginator{
+        background: tomato;
+}

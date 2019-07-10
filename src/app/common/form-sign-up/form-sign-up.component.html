@@ -1,0 +1,25 @@
+<div class="sign-up-container">
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm.value)">
+    <mat-form-field>
+      <input matInput placeholder="Tài khoản" [formControl]="taikhoan" required>
+      <mat-error *ngIf="taikhoan.invalid">{{getMessageRequired('Vui lòng nhập tài khoản')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput #input minlength="8" placeholder="Mật khẩu" [formControl]="matkhau" required>
+      <mat-hint>Mật khẩu tối thiểu 8 ký tự</mat-hint>
+      <mat-error *ngIf="matkhau.invalid">{{getMessagePassword(8)}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getMessageEmail()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Số điện thoại" [formControl]="sodt" required>
+      <mat-error *ngIf="sodt.invalid">{{getMessageRequired('Vui lòng nhập số điện thoại')}}</mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="!signUpForm.valid" color="primary">Đăng ký</button>
+      <button class="btnDong" data-dismiss="modal" mat-raised-button color="danger">Thoát</button>
+    </mat-card-actions>
+  </form>
+</div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/_core/services/data.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import { Subscription } from "rxjs";
-
+import { AuthService } from 'src/_core/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,23 +11,21 @@ import { Subscription } from "rxjs";
 export class HomeComponent implements OnInit {
 
   subListMovie: Subscription;
-  constructor(private dataService: DataService, private shareDataSerVice: ShareDataService) { }
+  constructor(private dataService: DataService, private shareDataSerVice: ShareDataService, private _authService: AuthService) { }
 
   ngOnInit() {
+    this._authService.clear();
     this.getDanhSachPhim();
   }
 
   getDanhSachPhim() {
-    let objPhim = {
-      maPhim: ''
-    }
     const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
     this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
       this.shareDataSerVice.shareDataListMovie(res);
-      objPhim.maPhim = res.MaPhim;
-      this.shareDataSerVice.shareDataMaPhim(objPhim);
     });
   }
+
+  
 
   ngOnDestroy() {
     this.subListMovie.unsubscribe();

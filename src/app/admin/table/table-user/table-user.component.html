@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-10">
+    <!-- Search -->
+    <mat-form-field>
+      <mat-label style="color:tomato"> <i style="margin:5px" class="fa fa-search" aria-hidden="true"></i>Search
+      </mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+  </div>
+  <!-- Button -->
+  <div class="colBtn col-md-2">
+    <button type="button" class="btn btn-success mr-4" (click)="them()">Thêm</button>
+    <button type="button" (click)="xoa()" class="btn btn-danger">Xóa</button>
+  </div>
+</div>
+
+<!-- Table -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && 
+      isAllSelected()" [indeterminate]="selection.hasValue() && isAllSelected()" [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- BẢNG USER -->
+
+  <ng-container matColumnDef="TaiKhoan">
+    <th mat-header-cell *matHeaderCellDef> Tài khoản </th>
+    <td mat-cell *matCellDef="let element"> {{element.TaiKhoan}} </td>
+  </ng-container>
+  <ng-container matColumnDef="MaLoaiNguoiDung">
+    <th mat-header-cell *matHeaderCellDef> Loại người dùng </th>
+    <td mat-cell *matCellDef="let element"> {{element.MaLoaiNguoiDung}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+  </ng-container>
+  <ng-container matColumnDef="SoDT">
+    <th mat-header-cell *matHeaderCellDef> Số ĐT </th>
+    <td mat-cell *matCellDef="let element"> {{element.SoDT}} </td>
+  </ng-container>
+  <ng-container matColumnDef="HanhDong">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <button id="btnSua" type="button" (click)="postId(element.TaiKhoan)" class="btn btn-primary mr-4">Sửa</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

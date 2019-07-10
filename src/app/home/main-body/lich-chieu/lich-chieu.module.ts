@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LichChieuComponent } from './lich-chieu.component';
-import { BrandItemComponent } from './brand-item/brand-item.component';
-import { BrandContentComponent } from './brand-content/brand-content.component';
 import { LichPhimComponent } from './lich-phim/lich-phim.component';
-
+import { RapItemComponent } from './rap-item/rap-item.component';
+import { PhimItemComponent } from './phim-item/phim-item.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [LichChieuComponent, BrandItemComponent, BrandContentComponent, BrandItemComponent, LichPhimComponent,],
-  exports: [LichChieuComponent, BrandItemComponent,LichPhimComponent,],
+  declarations: [LichChieuComponent, LichPhimComponent, RapItemComponent, PhimItemComponent,],
+  exports: [LichChieuComponent, LichPhimComponent, PhimItemComponent, RapItemComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ScrollingModule,
+    RouterModule
   ]
 })
 export class LichChieuModule { }

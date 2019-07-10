@@ -1,0 +1,11 @@
+<div class="col__phim">
+  <div class="phim__img">
+    <img [src]="phim.HinhAnh" alt="">
+  </div>
+  <div class="phim__info">
+    <h5>{{phim.TenPhim}}</h5>
+    <a class="btn btn-secondary" routerLink="/home/phong-ve/{{phim.MaLichChieu}}">
+      {{phim.NgayKhoiChieu | date:'hh:mm'}}
+    </a>
+  </div>
+</div>

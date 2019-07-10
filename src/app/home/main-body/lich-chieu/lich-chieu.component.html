@@ -1,19 +1,60 @@
 <section class="lichChieu">
   <div class="container">
-    <h2></h2>
-    <div class="row">
-      <div class="brands col-md-2">
-        <ul class="navnav-pills nav-stacked nav-brand">
-          <app-brand-item *ngFor="let item of brands" [brand]="item"></app-brand-item>
-        </ul>
+    <h2>LỊCH CHIẾU</h2>
+    <ul class="nav nav-tabs nav-brand">
+      <li class="active brand-item"><a data-toggle="tab" href="#bhd"><img
+            ng-src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+            src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"></a></li>
+      <li class="brand-item"><a data-toggle="tab" href="#galaxy"><img
+            ng-src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"
+            src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"></a></li>
+      <li class="brand-item"><a data-toggle="tab" href="#cinestar"><img
+            ng-src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"
+            src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"></a></li>
+      <li class="brand-item"><a data-toggle="tab" href="#cgv"><img
+            ng-src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"
+            src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"></a></li>
+      <li class="brand-item">
+        <a data-toggle="tab" href="#lotte"><img
+            ng-src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+            src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png">
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content brand-content">
+      <div id="bhd" class="tab-pane show active">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <app-rap-item [rap]="item" *ngFor="let item of cumRap[0]"></app-rap-item>
+            </div>
+            <div class="col-6">
+              <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
+                <app-phim-item [phim]="item" *ngFor="let item of listPhimDangChieu"></app-phim-item>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tab-content col-md-6">
-        <app-brand-content *ngFor="let item of brandContents" [brandContent]="item"></app-brand-content>
+      <div id="galaxy" class="tab-pane fade">
+        <div class="container">
+          2
+        </div>
       </div>
-      <div class="wrapper col-md-4">
-        <ul class="wrapper__content">
-          <app-lich-phim *ngFor="let item of listPhimDangChieu" [phim]="item"></app-lich-phim>
-        </ul>
+      <div id="cinestar" class="tab-pane fade">
+        <div class="container">
+          3
+        </div>
+      </div>
+      <div id="cgv" class="tab-pane fade">
+        <div class="container">
+          4
+        </div>
+      </div>
+      <div id="lotte" class="tab-pane fade">
+        <div class="container">
+          5
+        </div>
       </div>
     </div>
   </div>

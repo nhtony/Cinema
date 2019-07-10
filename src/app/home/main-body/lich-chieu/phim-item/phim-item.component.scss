@@ -1,0 +1,20 @@
+.col__phim{
+    display: flex;
+    .phim__img{
+        margin-right: 20px;
+        margin-bottom: 15px;
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 2px;
+        }
+    }
+    .phim__info{
+        h5{
+            color: red;
+        }
+        .btn{
+            padding: 0px 5px;
+        }
+    }
+}

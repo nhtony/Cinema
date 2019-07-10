@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TableComponent } from './table.component';
 import { MaterialModule } from 'src/_core/sharedata/material.modules';
+import { TableMovieComponent } from './table-movie/table-movie.component';
+import { TableUserComponent } from './table-user/table-user.component';
 
 @NgModule({
-  declarations: [TableComponent],
-  exports:  [TableComponent],
+  declarations: [TableMovieComponent, TableUserComponent],
+  exports:  [TableMovieComponent, TableUserComponent],
   imports: [
     CommonModule,
     MaterialModule

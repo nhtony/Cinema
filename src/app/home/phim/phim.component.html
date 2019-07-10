@@ -46,66 +46,224 @@
                 </li>
             </ul>
             <div class="tab-content brand-content">
-                <div id="bhd" class="tab-pane fade in active">
+                <div id="bhd" class="tab-pane show active">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <ul class="nav nav-rap nav-tabs row">
-                                    <li class="active col-md-12"><a data-toggle="tab" href="#t2">Thứ 2</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#t3">Thứ 3</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#t4">Thứ 4</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#t5">Thứ 5</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#t6">Thứ 6</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#t7">Thứ 7</a></li>
-                                    <li class="col-md-12"><a data-toggle="tab" href="#cn">Chủ nhật</a></li>
-                                </ul>
+                        <div class="nav nav-tabs nav__tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mon-tab" data-toggle="tab" href="#nav-mon"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
+                            <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed" role="tab"
+                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-mon" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT2"></app-time-table>
                             </div>
-                            <div class="col-md-9">
-                                <div class="tab-content time-content">
-                                    <div id="t2" class="tab-pane fade in active">
-                                        <app-time-table [timeList]="suatT2"></app-time-table>
-                                    </div>
-                                    <div id="t3" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatT3"></app-time-table>
-                                    </div>
-                                    <div id="t4" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatT4"></app-time-table>
-                                    </div>
-                                    <div id="t5" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatT5"></app-time-table>
-                                    </div>
-                                    <div id="t6" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatT6"></app-time-table>
-                                    </div>
-                                    <div id="t7" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatT7"></app-time-table>
-                                    </div>
-                                    <div id="cn" class="tab-pane fade">
-                                        <app-time-table [timeList]="suatCN"></app-time-table>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="nav-tue" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT3"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wed" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT4"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-thu" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT5"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-fri" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT6"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sat" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatT7"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sun" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[0]" [suat]="suatCN"></app-time-table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="galaxy" class="tab-pane fade">
                     <div class="container">
-
+                        <div class="nav nav-tabs nav__tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mon-tab" data-toggle="tab" href="#nav-mon-1"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
+                            <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-1" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-1" role="tab"
+                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-1" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-1" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-1" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-1" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-mon-1" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT2"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-tue-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT3"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wed-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT4"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-thu-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT5"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-fri-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT6"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sat-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatT7"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sun-1" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[1]" [suat]="suatCN"></app-time-table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="cinestar" class="tab-pane fade in active">
+                <div id="cinestar" class="tab-pane fade">
                     <div class="container">
-
+                        <div class="nav nav-tabs nav__tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mon-tab" data-toggle="tab" href="#nav-mon-2"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
+                            <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-2" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-2" role="tab"
+                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-2" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-2" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-2" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-2" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-mon-2" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT2"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-tue-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT3"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wed-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT4"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-thu-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT5"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-fri-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT6"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sat-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatT7"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sun-2" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[2]" [suat]="suatCN"></app-time-table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="cgv" class="tab-pane fade">
                     <div class="container">
-
+                        <div class="nav nav-tabs nav__tabs" id="nav-tab-3" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mon-tab" data-toggle="tab" href="#nav-mon-3"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
+                            <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-3" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-3" role="tab"
+                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-3" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-3" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-3" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-3" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-mon-3" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT2"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-tue-3" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT3"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wed-3" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT4"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-thu-3" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT5"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-fri-3" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT6"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sat-3" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatT7"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sun-3" role="tabpanel" aria-labelledby="nav-h.ome-tab">
+                                <app-time-table [cumrap]="cumRap[3]" [suat]="suatCN"></app-time-table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="lotte" class="tab-pane fade">
                     <div class="container">
-
+                        <div class="nav nav-tabs nav__tabs" id="nav-tab-4" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mon-tab" data-toggle="tab" href="#nav-mon-4"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
+                            <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-4" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-4" role="tab"
+                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-4" role="tab"
+                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-4" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-4" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-4" role="tab"
+                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-mon" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT2"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-tue-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT3"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-wed-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT4"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-thu-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT5"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-fri-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT6"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sat-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatT7"></app-time-table>
+                            </div>
+                            <div class="tab-pane fade" id="nav-sun-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <app-time-table [cumrap]="cumRap[4]" [suat]="suatCN"></app-time-table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

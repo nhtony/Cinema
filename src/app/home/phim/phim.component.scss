@@ -78,6 +78,64 @@
       border-radius: 11px;
     }
   }
+  // MENU
+  .menuTab{
+    mat-tab-group{
+      text-align: center;
+    }
+    .nav-brand{
+      justify-content: center;
+      border-bottom: none;
+      margin-bottom: 40px;
+      .brand-item{
+        margin: 20px;
+        a{
+          text-decoration: none;
+          img{
+           width: 50px;
+           height: 50px;
+          }
+        }
+      }
+      }
+    .brand-content{
+     
+      
+        .nav__tabs {
+          justify-content: center;
+          border: none;
+          border-bottom: 1px solid grey;
+          .nav-link {
+            border: none;
+            font-size: 18px;
+            padding: 10px 35px;
+            color: black;
+            position: relative;
+            &::before {
+              content: '';
+              width: 0%;
+              height: 2px;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              background-image: linear-gradient(to right, #fbbd61, #ec7532);
+              transition: all .3s linear;
+            }
+            &:hover::before {
+              width: 100%;
+            }
+            &.active {
+              color: #ec7532;
+              &::before {
+                width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  
   
   @media screen and (min-width: 768px) {
     .movie_header{
@@ -134,44 +192,7 @@
     }
   }
 
-  // MENU
-.menuTab{
-    mat-tab-group{
-      text-align: center;
-    }
-    .nav-brand{
-      justify-content: center;
-      border-bottom: none;
-      margin-bottom: 40px;
-      .brand-item{
-        margin: 20px;
-        a{
-          text-decoration: none;
-          img{
-           width: 50px;
-           height: 50px;
-          }
-        }
-      }
-      }
-    .brand-content{
-      .nav-rap{
-        justify-content: flex-start;
-        li{
-          margin:0 20px 20px 0;
-          a{
-            img{
-              width: 50px;
-              height: 50px;
-            }
-          }
-        }
-     }
-     .time-content{
-       text-align: start;
-     }
-  }
-}
+
     
   
  

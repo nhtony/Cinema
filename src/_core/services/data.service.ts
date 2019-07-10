@@ -31,7 +31,7 @@ export class DataService {
         () => { },
         catchError(err => {
           return this.handleError(err);
-        })
+        }) 
       )
     );
   }

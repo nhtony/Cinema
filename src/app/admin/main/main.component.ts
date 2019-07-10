@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/_core/services/auth.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -12,10 +11,10 @@ export class MainComponent implements OnInit {
   mainMar: string = '';
   isOpen: boolean = false;
   content: string = 'Menu';
-  constructor(private _authservice: AuthService, private shareDataService: ShareDataService) { }
+  constructor(private _authservice: AuthService, private shareDataService: ShareDataService,private _authService: AuthService) { }
 
   ngOnInit() {
-
+    
   }
   openNav() {
     this.isOpen = !this.isOpen;

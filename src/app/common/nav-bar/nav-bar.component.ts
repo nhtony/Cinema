@@ -26,16 +26,8 @@ export class NavBarComponent implements OnInit {
       status: true,
     };
     this.shareDataService.shareDataActionState(objStatus);
-    this.shareDataService.shareDataPlayState(false);
   }
 
-  dangKy() {
-    let objStatus: any = {
-      status: false,
-    };
-    this.shareDataService.shareDataActionState(objStatus);
-    this.shareDataService.shareDataPlayState(false);
-  }
 
   dangXuat() {
     this._authService.logout();

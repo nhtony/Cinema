@@ -134,13 +134,9 @@ export class PhongVeComponent implements OnInit {
     });
   }
 
-
   getAccount() {
     this.data.shareAccount.subscribe((res) => {
       this.account = res.TaiKhoan;
     });
   }
-
-
-
 }

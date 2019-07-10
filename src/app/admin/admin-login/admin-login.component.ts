@@ -38,6 +38,7 @@ export class AdminLoginComponent implements OnInit {
         this._authService.loginAdmin();
       }
     });
+
   }
 
   login() {
@@ -48,4 +49,6 @@ export class AdminLoginComponent implements OnInit {
     return this.adLoginFrom.controls[controlName].hasError(errorName);
   }
 
+
+ 
 }

@@ -1,0 +1,16 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <mat-form-field>
+      <input matInput [formControl]="taiKhoan" placeholder="Tài khoản" required>
+      <mat-error *ngIf="taiKhoan.invalid">{{getMessageRequired('Vui lòng nhập tài khoản')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" [formControl]="matKhau" placeholder="Mật khẩu" required>
+      <mat-error *ngIf="matKhau.invalid">{{getMessageRequired('Vui lòng nhập mật khẩu')}}</mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="!loginForm.valid" color="primary">Đăng nhập</button>
+      <button class="btnDong" data-dismiss="modal" mat-raised-button color="danger">Thoát</button>
+    </mat-card-actions>
+  </form>
+</div>
