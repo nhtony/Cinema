@@ -3,6 +3,9 @@ $color_2: #ff9800;
 $color_3: #f7f406;
 
 .card {
+	svg{
+		display: none;
+	}
 	background: #000;
 	overflow: hidden;
 	box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
@@ -44,65 +47,46 @@ $color_3: #f7f406;
 			bottom: 0;
 		}
 	}
-}
-.details {
-	position: absolute;
-	padding: 20px;
-	width: 100%;
-	height: 74%;
-	bottom: -190px;
-	left: 0;
-	box-sizing: border-box;
-	transition: 0.5s;
-	z-index: 2;
-	h2 {
-		color: $color_1;
-		margin: 0;
-		padding: 0;
-		font-size: 20px;
-		span {
-			font-size: 14px;
-			color: $color_2;
+	.details {
+		position: absolute;
+		padding: 20px;
+		width: 100%;
+		height: 74%;
+		bottom: -190px;
+		left: 0;
+		box-sizing: border-box;
+		transition: 0.5s;
+		z-index: 2;
+		h2 {
+			color: $color_1;
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			span {
+				font-size: 14px;
+				color: $color_2;
+			}
 		}
-	}
-}
-.rating {
-	position: relative;
-	padding: 5px, 0;
-	.fa {
-		color: $color_3;
-		margin-right: 2px;
-		font-size: 16px;
-	}
-	span {
-		color: $color_1;
-		padding: 0 5px;
-	}
-}
-.tags {
-	position: relative;
-	margin-top: 5px;
-	span {
-		padding: 2px 5px;
-		margin-right: 2px;
-		color: $color_1;
-		display: inline-block;
-		border-radius: 4px;
-	}
-	span.fantasy {
-		background: #7206f7;
-	}
-	span.scifi {
-		background: #f70661;
-	}
-}
-.info {
-	color: $color_1;
-	p {
-		margin: 15px, 0, 10px;
-	}
-}
-
+		.info {
+			color: $color_1;
+			p {
+				margin: 15px, 0, 10px;
+			}
+		}
+		.rating {
+			position: relative;
+			padding: 5px, 0;
+			.fa {
+				color: $color_3;
+				margin-right: 2px;
+				font-size: 16px;
+			}
+			span {
+				color: $color_1;
+				padding: 0 5px;
+			}
+		}
+		
 ul {
 	list-style: none;
 	margin: 10px;
@@ -132,6 +116,7 @@ $background_color_2: rgba(0,0,0,0.8);
 	font-weight: bold;
 	font-size: 20px;
 	transition: all 0.3s ease;
+	cursor: pointer;
 	i{
 		font-weight: bold;
 		font-size: 24px;
@@ -147,4 +132,11 @@ $background_color_2: rgba(0,0,0,0.8);
 
 	}
 }
+	}
+	
+}
+
+
+
+
 

@@ -4,8 +4,7 @@
   </div>
   <div class="phim__info">
     <h5>{{phim.TenPhim}}</h5>
-    <a class="btn btn-secondary" routerLink="/home/phong-ve/{{phim.MaLichChieu}}">
-      {{phim.NgayKhoiChieu | date:'hh:mm'}}
-    </a>
+    <!-- <h6>Thời lượng:<span>{{phim.LichChieu[0].ThoiLuong}}</span>phút</h6> -->
+    <app-suat-item [suatChieu]="item" *ngFor="let item of phim.LichChieu">{{stt}}</app-suat-item>
   </div>
 </div>

@@ -8,18 +8,15 @@ import * as $ from 'jquery';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-
+  isPlayVideo: boolean;
   constructor(private shareDataService: ShareDataService) { }
 
   ngOnInit() {
-    this.shareDataService.shareActionState.subscribe((res: any) => {
-     
+    this.shareDataService.sharePlayState.subscribe((res: any) => {
+      this.isPlayVideo = (res.status);
     });
 
   }
 
-  stop() {
-    $('#player').attr('src', '');
-  }
 
 }

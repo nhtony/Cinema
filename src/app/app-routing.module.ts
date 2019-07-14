@@ -9,7 +9,7 @@ import { AdminLoginModule } from './admin/admin-login/admin-login.module';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => HomeModule },
-  { path: 'admin', loadChildren: () => AdminModule, canActivate:[AdminGuard]},
+  { path: 'admin', loadChildren: () => AdminModule},
   { path: 'admin-login', loadChildren: () => AdminLoginModule},
   { path: '**', component: PageNotFoundComponent }
 ];

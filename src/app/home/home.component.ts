@@ -22,10 +22,19 @@ export class HomeComponent implements OnInit {
     const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
     this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
       this.shareDataSerVice.shareDataListMovie(res);
+      this.pushListIdPhim();
     });
   }
 
-  
+  pushListIdPhim() {
+    let listIdPhimDangChieu = [];
+    this.shareDataSerVice.shareListPhimDangChieu.subscribe((res) => {
+      res.map((res) => {
+        listIdPhimDangChieu.push(res.MaPhim);
+      });
+    });
+    this.shareDataSerVice.shareDataMaPhim(listIdPhimDangChieu);
+  }
 
   ngOnDestroy() {
     this.subListMovie.unsubscribe();

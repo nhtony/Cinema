@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <button class="btn-lich dropdown-toggle" data-toggle="dropdown">
+    {{suatChieu.NgayChieuGioChieu | date:'dd/MM'}}
+  </button>
+  <div class="dropdown-menu">
+    <button id="btnTime" (click)="vaoPhongVe()" data-toggle="modal" data-target="#myModal">{{suatChieu.NgayChieuGioChieu | date:'hh:mm'}}</button>
+  </div>
+</div>

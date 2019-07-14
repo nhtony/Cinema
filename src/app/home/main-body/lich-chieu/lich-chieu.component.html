@@ -30,7 +30,7 @@
             </div>
             <div class="col-6">
               <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
-                <app-phim-item [phim]="item" *ngFor="let item of listPhimDangChieu"></app-phim-item>
+                <app-phim-item [phim]="item" *ngFor="let item of mangChiTietPhim"></app-phim-item>
               </cdk-virtual-scroll-viewport>
             </div>
           </div>
@@ -38,22 +38,58 @@
       </div>
       <div id="galaxy" class="tab-pane fade">
         <div class="container">
-          2
+          <div class="row">
+            <div class="col-6">
+              <app-rap-item [rap]="item" *ngFor="let item of cumRap[1]"></app-rap-item>
+            </div>
+            <div class="col-6">
+              <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
+                <app-phim-item [phim]="item" *ngFor="let item of mangChiTietPhim"></app-phim-item>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
         </div>
       </div>
       <div id="cinestar" class="tab-pane fade">
         <div class="container">
-          3
+          <div class="row">
+            <div class="col-6">
+              <app-rap-item [rap]="item" *ngFor="let item of cumRap[2]"></app-rap-item>
+            </div>
+            <div class="col-6">
+              <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
+                <app-phim-item [phim]="item" *ngFor="let item of mangChiTietPhim"></app-phim-item>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
         </div>
       </div>
       <div id="cgv" class="tab-pane fade">
         <div class="container">
-          4
+          <div class="row">
+            <div class="col-6">
+              <app-rap-item [rap]="item" *ngFor="let item of cumRap[3]"></app-rap-item>
+            </div>
+            <div class="col-6">
+              <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
+                <app-phim-item [phim]="item" *ngFor="let item of mangChiTietPhim"></app-phim-item>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
         </div>
       </div>
       <div id="lotte" class="tab-pane fade">
         <div class="container">
-          5
+          <div class="row">
+            <div class="col-6">
+              <app-rap-item [rap]="item" *ngFor="let item of cumRap[4]"></app-rap-item>
+            </div>
+            <div class="col-6">
+              <cdk-virtual-scroll-viewport style="height: 280px" itemSize="20">
+                <app-phim-item [phim]="item" *ngFor="let item of mangChiTietPhim"></app-phim-item>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
         </div>
       </div>
     </div>

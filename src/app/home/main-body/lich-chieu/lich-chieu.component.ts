@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareDataService } from 'src/_core/services/share-data.service';
+import { DataService } from 'src/_core/services/data.service';
 
 @Component({
   selector: 'app-lich-chieu',
@@ -34,26 +35,97 @@ export class LichChieuComponent implements OnInit {
       { hinh: 'https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-nam-sai-gon-15383867312967.jpg', ten: 'Lotte - Nam Sài Gòn', diachi: 'L4-Lotte Mart Phú Thọ, Q.11' }
     ]
   ];
-
+  private mangIdPhim: any = [];
+  private mangChiTietPhim: any = [];
   listPhimDangChieu: any = [];
+  mangLichChieu: any = [[], [], [], [], [], [], []];
 
-  constructor(private data: ShareDataService) { }
+  constructor(private dataService: DataService, private shareDataService: ShareDataService) { }
 
   ngOnInit() {
-    this.getListMovie();
-  }
-
-  getListMovie() {
-    this.data.shareListPhimDangChieu.subscribe((res) => {
-      this.listPhimDangChieu = res;
+    this.shareDataService.shareMaPhim.subscribe((res) => {
+      if (res.length > 0) {
+        this.mangIdPhim = res;
+        this.getListDetail();
+        setTimeout(() => {
+          this.getLichChieu();
+        }, 600);
+      }
     });
   }
 
-  addIdPhimForElement(mang) {
-    let obj = {};
+
+
+  getListDetail() {
+    let mang = [];
+    this.mangIdPhim.map((id) => {
+      let uri = 'QuanLyPhim/LayChiTietPhim?MaPhim=' + id;
+      this.dataService.get(uri).subscribe((res) => {
+        mang.push(res);
+      });
+    });
+    setTimeout(() => {
+      this.mangChiTietPhim = mang;
+    }, 500);
+  }
+
+  getLichChieu() {
+    this.mangChiTietPhim.map(res => {
+      this.xepLichChieu(res.LichChieu);
+    });
+  }
+
+  xepLichChieu(mang) {
     mang.map((res) => {
-     
+      let day = this.getTime('day', res.NgayChieuGioChieu);
+      switch (day) {
+        case 1:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 2:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 3:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 4:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 5:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 6:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        case 7:
+          this.mangLichChieu[day - 1].push(res);
+          break;
+        default:
+          break;
+      }
     });
   }
 
+  getTime(time: string, date: any) {
+    let today = (date === null) ? new Date() : new Date(date);
+    switch (time) {
+      case 'year':
+        let year = today.getFullYear();
+        return year
+      case 'month':
+        let month = today.getMonth() + 1;
+        return month;
+      case 'day':
+        let day = today.getDate();
+        return day;
+      case 'weekday':
+        let weekday = today.getUTCDay();
+        return weekday;
+      case 'today':
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        return date;
+      default:
+        break;
+    }
+  }
 }

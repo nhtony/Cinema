@@ -6,9 +6,11 @@ import { RapItemComponent } from './rap-item/rap-item.component';
 import { PhimItemComponent } from './phim-item/phim-item.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { RouterModule } from '@angular/router';
+import { SuatItemComponent } from './suat-item/suat-item.component';
+
 
 @NgModule({
-  declarations: [LichChieuComponent, LichPhimComponent, RapItemComponent, PhimItemComponent,],
+  declarations: [LichChieuComponent, LichPhimComponent, RapItemComponent, PhimItemComponent, SuatItemComponent,],
   exports: [LichChieuComponent, LichPhimComponent, PhimItemComponent, RapItemComponent],
   imports: [
     CommonModule,

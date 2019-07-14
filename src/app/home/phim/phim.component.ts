@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/_core/services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ShareDataService } from 'src/_core/services/share-data.service';
 
 @Component({
   selector: 'app-phim',
@@ -89,8 +88,6 @@ export class PhimComponent implements OnInit {
         return day;
       case 'weekday':
         let weekday = today.getUTCDay();
-
-
         return weekday;
       case 'today':
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -107,7 +104,7 @@ export class PhimComponent implements OnInit {
         case 0:
           this.suatCN.push(res);
           break;
-        case 1:
+        case 1: 
           this.suatT2.push(res);
           break;
         case 2:

@@ -47,9 +47,6 @@ export class ShowerComponent implements OnInit {
         this.phanLoaiPhim(res);
       }
     });
-    this.pushPhimDangChieu();
-    console.log(this.listPhimDangChieu);
-    this.pushIdPhim(this.listPhimDangChieu);
   }
 
   getTime(time: string, date: any) {
@@ -92,20 +89,7 @@ export class ShowerComponent implements OnInit {
         }
       }
     });
-  }
-
-  pushPhimDangChieu() {
     this.data.shareDataListPhimDangChieu(this.listPhimDangChieu);
-   
-  }
-
-  pushIdPhim(mangPhim) {
-    let mangIdPhim = [];
-    mangPhim.map((res) => {
-      mangIdPhim.push(res.MaPhim);
-      this.data.shareDataMaPhim(mangIdPhim);
-     
-    });
   }
 
   showPhimDangChieu() {

@@ -6,7 +6,9 @@ import { SharingModule } from 'src/app/sharing/sharing.module';
 import { ShowerModule } from './shower/shower.module';
 import { SliderModule } from './slider/slider.module';
 import { LichChieuModule } from './lich-chieu/lich-chieu.module';
-
+import { GalleryModule } from '@ngx-gallery/core';
+import { LightboxModule } from '@ngx-gallery/lightbox';
+import { GallerizeModule } from '@ngx-gallery/gallerize';
 
 @NgModule({
   declarations: [MainBodyComponent,],
@@ -17,7 +19,10 @@ import { LichChieuModule } from './lich-chieu/lich-chieu.module';
     SharingModule,
     ShowerModule,
     SliderModule,
-    LichChieuModule
+    LichChieuModule,
+    GalleryModule,
+    LightboxModule,
+    GallerizeModule
   ]
 })
 export class MainBodyModule { }

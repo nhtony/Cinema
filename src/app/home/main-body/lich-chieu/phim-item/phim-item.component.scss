@@ -4,17 +4,31 @@
         margin-right: 20px;
         margin-bottom: 15px;
         img{
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 75px;
             border-radius: 2px;
         }
     }
     .phim__info{
         h5{
             color: red;
+            margin-bottom: 3px;
         }
-        .btn{
-            padding: 0px 5px;
+        h6{
+            font-size: 13px;
+            margin-bottom: 3px;
+            span{
+                margin:0 5px;
+            }
         }
+        .dropdown{
+            &:active.dropdown-menu {
+                display: block;
+            }
+            & > .dropdown-toggle:active{
+                pointer-events: none;
+            }
+        }
+       
     }
 }
