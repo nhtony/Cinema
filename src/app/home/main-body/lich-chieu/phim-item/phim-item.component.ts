@@ -10,7 +10,9 @@ export class PhimItemComponent implements OnInit {
 
   @Input() phim;
 
+  idTen: any;
+
   ngOnInit() {
-   
+    this.idTen = this.phim.TenPhim.split(' ');
   }
 }

@@ -14,7 +14,7 @@ export class DanhSachNguoiDungComponent implements OnInit {
   mangNguoiDung = [];
   subListUser: Subscription;
 
-  constructor(private dataSerVice: DataService,private data: ShareDataService) { }
+  constructor(private dataSerVice: DataService, private data: ShareDataService) { }
 
   ngOnInit() {
     this.getDanhSachNguoiDung();

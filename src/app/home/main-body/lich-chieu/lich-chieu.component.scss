@@ -1,33 +1,35 @@
-.lichChieu{
-    padding: 70px;
-    h2{
-        text-align: center;
-        margin-bottom: 30px;
+.lichChieu {
+  padding: 70px;
+  background: #212121;
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.93);
+  }
+  .nav-brand {
+    justify-content: center;
+    list-style: none;
+    border-bottom: none;
+    margin-bottom: 35px;
+    .brand-item {
+      margin: 20px;
+      img {
+        width: 50px;
+        height: 50px;
+        opacity: 0.8;
+      }
     }
-    .nav-brand{
-        justify-content: center;
-        list-style:none;
-        border-bottom: none;
-        margin-bottom: 35px;
-        .brand-item{
-            margin: 20px;
-            opacity: 0,7;
-            img{
-                width: 50px;
-                height: 50px;
-
-            }
-        }
-
+  }
+  .brand-content {
+    .row {
+      padding: 30px;
+      background-color: #ff8a80;
+      border-radius: 5px;
     }
-    .brand-content{
-        background-color: aquamarine;
-        border-radius: 10px;
-        .row{
-            padding: 30px;
-        }
-    }
+  }
 }
-.active{
-    opacity: 1;
+
+.actived {
+  transform: scale(1.2) !important;
+  opacity: 1 !important;
 }

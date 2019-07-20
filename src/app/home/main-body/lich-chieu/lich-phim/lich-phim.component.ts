@@ -11,7 +11,7 @@ export class LichPhimComponent implements OnInit {
   @Input() phim;
   thoigian: any;
   subDetail: Subscription;
-  constructor(private data: ShareDataService,private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.getMovieDetail();

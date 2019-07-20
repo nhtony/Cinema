@@ -17,6 +17,14 @@ export class AuthService {
     sessionStorage.clear();
   }
 
+  clearAdminToken():void{
+    sessionStorage.removeItem('tokenadmin');
+  }
+
+  clearUserToken():void{
+    sessionStorage.removeItem('token');
+  }
+
   /**
    * check for expiration and if token is still existing or not
    * @return {boolean}
@@ -50,7 +58,6 @@ export class AuthService {
    */
   logout(): void {
     this.clear();
-    this._router.navigate(['/home']);
   }
 
   decode() {

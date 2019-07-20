@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { DataService } from 'src/_core/services/data.service';
 import Swal from 'sweetalert2';
 import { ShareDataService } from 'src/_core/services/share-data.service';
+
 @Component({
   selector: 'app-form-sign-up',
   templateUrl: './form-sign-up.component.html',
@@ -13,6 +14,7 @@ export class FormSignUpComponent implements OnInit {
   constructor(private dataService: DataService, private shareDataService: ShareDataService) { }
 
   signUpForm: FormGroup;
+  
 
   taikhoan = new FormControl('', Validators.required);
   matkhau = new FormControl('', [Validators.required, Validators.minLength(8)]);
@@ -81,6 +83,5 @@ export class FormSignUpComponent implements OnInit {
       sodt: this.sodt
     });
   }
-
 
 }

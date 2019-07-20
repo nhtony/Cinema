@@ -1,0 +1,34 @@
+.user-profile {
+  padding: 150px 0;
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    h1 {
+      text-align: center;
+    }
+    button {
+      margin-left: 20px;
+    }
+  }
+  .col-profile {
+    background-color: #ff8a80;
+    padding: 15px;
+    label {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+      text-align: center;
+      background: #000;
+      border: none;
+      color: white;
+    }
+  }
+}

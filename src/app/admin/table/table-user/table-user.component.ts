@@ -1,10 +1,11 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Input, ViewChild,OnInit } from '@angular/core';
+import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from '@angular/router';
 import { DataService } from 'src/_core/services/data.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table-user',
@@ -14,6 +15,7 @@ import Swal from 'sweetalert2';
 export class TableUserComponent implements OnInit {
 
   @Input() mang;
+ 
 
   ELEMENT_DATA = [
 
@@ -36,17 +38,17 @@ export class TableUserComponent implements OnInit {
   }
 
   them() {
-      this.router.navigate(["/admin/them-nguoi-dung"]);
+    this.router.navigate(["/admin/them-nguoi-dung"]);
   }
 
   postId(ma) {
-      this.router.navigate(["/admin/cap-nhat-nguoi-dung/", ma]);
+    this.router.navigate(["/admin/cap-nhat-nguoi-dung/", ma]);
   }
 
   xoa() {
     this.selection.selected.forEach(element => {
       const uri = `QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${element.TaiKhoan}`;
-      this.dataService.delete(uri).subscribe((res) => {
+       this.dataService.delete(uri).subscribe((res) => {
         if (res === 'Xóa người dùng thành công') {
           Swal.fire(res);
           setTimeout(() => {
@@ -61,7 +63,7 @@ export class TableUserComponent implements OnInit {
   }
 
 
-  displayedColumns: string[] = ['select', 'TaiKhoan', 'MaLoaiNguoiDung', 'Email', 'SoDT', 'HanhDong'] 
+  displayedColumns: string[] = ['select', 'TaiKhoan', 'MaLoaiNguoiDung', 'Email', 'SoDT', 'HanhDong']
 
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   selection = new SelectionModel(true, []);
@@ -93,4 +95,5 @@ export class TableUserComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 
+  
 }

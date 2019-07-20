@@ -6,7 +6,7 @@ const routes: Routes = [
     { path: '', component: PhimComponent},
 ];
 
-@NgModule({ 
+@NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })

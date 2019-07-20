@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MainBodyModule } from './main-body/main-body.module';
 
-
 const routes: Routes = [
     {
         path: '', component: HomeComponent, children: [

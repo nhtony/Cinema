@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/_core/services/data.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
+import { DynamicScriptLoaderServiceService } from 'src/_core/services/dynamic-script-loader-service.service';
+import { Subscription } from "rxjs";
+import swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-phong-ve',
@@ -9,6 +14,9 @@ import { ShareDataService } from 'src/_core/services/share-data.service';
   styleUrls: ['./phong-ve.component.scss']
 })
 export class PhongVeComponent implements OnInit {
+
+  subParams: Subscription;
+  subCineDetail: Subscription;
 
   maLichChieu: any;
   seatMaps: any = [];
@@ -24,29 +32,44 @@ export class PhongVeComponent implements OnInit {
   account: any;
   danhDachVe: any = [];
 
+  objRap = {
+    src: '',
+    cinename: '',
+    filmname: ''
+  }
+
   comboMenu: any = [
     { tenCombo: 'Combo 1', gia: 75000, soLuong: 0, hinhAnh: '../../../../assets/img/combo1.jpg' },
     { tenCombo: 'Combo 2', gia: 85000, soLuong: 0, hinhAnh: '../../../../assets/img/combo2.jpg' },
   ];
 
-
-  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private data: ShareDataService,private _router: Router) {
-
-  }
+  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private data: ShareDataService, private _router: Router, private dynamicScriptLoader: DynamicScriptLoaderServiceService) { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
     this.getDanhSachGhe();
     this.getAccount();
+    this.getHinhRap();
+    this.loadScripts();
   }
 
   getParams() {
     this.maLichChieu = this.activatedRoute.snapshot.paramMap.get('id');
+    this.subParams = this.activatedRoute.queryParams.subscribe(
+      (params: any) => {
+        this.objRap.cinename = params.tenrap;
+        this.objRap.filmname = params.tenphim;
+
+      }
+    );
   }
 
   getDanhSachGhe() {
     this.getParams();
     const uri = `QuanLyPhim/ChiTietPhongVe?MaLichChieu=${this.maLichChieu}`;
-    this.dataService.get(uri).subscribe((res) => {
+    this.subCineDetail = this.dataService.get(uri).subscribe((res) => {
       this.seatMaps = res.DanhSachGhe;
       this.doiTenGhe();
     })
@@ -88,7 +111,7 @@ export class PhongVeComponent implements OnInit {
       objVe.GiaVe = objGhe.ghe.GiaVe;
       this.danhDachVe.push(objVe);
       this.tienGhe += parseInt(objGhe.ghe.GiaVe);
-      this.tinhTongTien(); 
+      this.tinhTongTien();
     }
     else {
       this.danhSachGheDangChon.map((item, index) => {
@@ -128,9 +151,20 @@ export class PhongVeComponent implements OnInit {
       TaiKhoanNguoiDung: this.account,
       DanhSachVe: this.danhDachVe
     }
-    this.dataService.post(uri,ve).subscribe((res) => {
-      alert(res);
-      this._router.navigate(['/home']);
+    this.dataService.post(uri, ve).subscribe((res) => {
+      swal.fire({
+        title: res,
+        text: "Bạn có muốn có đặt thêm không?",
+        showConfirmButton: true,
+        showCancelButton: true
+      })
+        .then((willContinute) => {
+          if (willContinute.value) {
+            location.reload();
+          } else {
+            this._router.navigate(['/home']);
+          }
+        });
     });
   }
 
@@ -138,5 +172,30 @@ export class PhongVeComponent implements OnInit {
     this.data.shareAccount.subscribe((res) => {
       this.account = res.TaiKhoan;
     });
+  }
+
+  getHinhRap() {
+    this.data.shareHinhRap.subscribe((res) => {
+      this.objRap.src = res.src;
+    });
+  }
+
+  canDeactivate() {
+    window.onhashchange = function () {
+      alert(1234);
+    }
+  }
+
+
+  private loadScripts() {
+    // You can load multiple scripts by just providing the key as argument into load method of the service
+    this.dynamicScriptLoader.load('flip-clock', 'clock').then(data => {
+      // Script Loaded Successfully
+    }).catch(error => console.log(error));
+  }
+
+  ngOnDestroy() {
+    this.subCineDetail.unsubscribe();
+    this.subParams.unsubscribe();
   }
 }

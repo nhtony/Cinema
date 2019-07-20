@@ -1,94 +1,75 @@
-$standard: black;
-$white: #F1F2F2;
-$mainColor: #ff4444;
-$transition: all 0.25s ease-in-out;
-@mixin mybutton($color_1, $color_2,$color_3) {
-  padding: 6px;
-  font-size: 1.15em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-	color: $color_1;
-  background-color: $color_2;
-  transition: $transition;
-	&:hover {
-		background-color: $mainColor;
-		border-color: $color_1;
-    color:$white;
-    outline: none;
-	}
-	&:active {
-		background-color:$mainColor;
-		border-color: $color_1;
-		color: $white;
-    box-shadow: none;
-    outline: none;
-	}
-	&:focus, &:active:focus {
-		background-color: $mainColor;
-		border-color: $color_1;
-		color: $white;
-		outline: none;
-	}
-	&:visited {
-		background-color: $standard;
-    border-color:$white;
-    outline: none;
-	}
-}
 .navbar {
-	width:100%;
-	background:#ff4444;
-	position: fixed;
-    z-index:10000;
-    .collapse {
-        .col-left{
-            display: flex;
-            align-items: center;
-            .navbar-nav {
-              .nav-item{
-                .nav-link{
-                  text-transform: uppercase;
-                  color: $white;
-                }
-                &:hover > .nav-link{
-                  color: black;
-                  transition: all 0.5s;
-                }
-              }
-            }
+  width: 100%;
+  background: #ff4444;
+  position: fixed;
+  z-index: 10000;
+  .collapse {
+    .col-left {
+      display: flex;
+      align-items: center;
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            text-transform: uppercase;
+            color: white;
+          }
+          &:hover > .nav-link {
+            color: black;
+            transition: all 0.5s;
+          }
         }
-        .col-right {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                .dropdown{
-                  .avatar{
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    cursor: pointer;
-                    img{
-                      width: 100%;
-                      display: block;
-                      border-radius: 50%;
-                    }
-                  }
-                  .dropdown-menu{
-                    padding: 0;
-                    border-radius: 0px;
-                    .dropdown-item{
-                      padding: 0;
-                      text-align: center;
-                    }
-                  }
-                }
-              .btn {
-                outline: none;
-                margin:0 10px;
-                @include mybutton($white, $standard,$mainColor);
-              }
-            
-        }
+      }
     }
- }
-
+    .col-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .dropdown {
+        .avatar {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          cursor: pointer;
+          img {
+            width: 100%;
+            display: block;
+            border-radius: 50%;
+          }
+        }
+        .dropdown-menu {
+          padding: 0;
+          border-radius: 5px;
+          padding: 10px 0;
+          .dropdown-item {
+            padding: 0;
+            text-align: center;
+            margin-bottom: 5px;
+            &:hover{
+              background-color:  #FFDC47;
+            }
+            i{
+              padding: 5px;
+            }
+          }
+        }
+      }
+      .btn-login {
+        margin: 0 10px;
+        font-size: 1em;
+        background: none;
+        border: none;
+        background-color: #FFDC47;
+        border: 1px solid  #FFDC47;
+        border-radius: 5px;
+        padding: 6px 10px;
+        &:hover{
+          background-color: #ff4444;
+          border: 1px solid black;
+          color: white;
+          border-radius: 0;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+}

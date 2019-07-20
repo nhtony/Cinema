@@ -1,43 +1,21 @@
-.dropdown{
-    display: inline;
-     &:hover > .dropdown-menu{
-        display: block;
-        background-color: #ff9f43;
-     }
-     &:hover .btn-lich {
-        background-color: #ff9f43;
-        color: white;
-     }
-     & >.dropdown-toggle:active{
-        pointer-events: none;
-     }
-     .btn-lich{
-        background-color:transparent;
-        border: 1px solid #ff9f43;
-        width: 50px;
-        margin-right: 3px;
-        outline: none;
-        border-radius: 2px;
-        &:hover{
-            background-color: #ff9f43;
-            color: white;
-        }
-        &::after{
-            content: none;
-        }
-     }
-     .dropdown-menu{
-        padding-left: 10px;
-        border: none;
-        button{
-            background-color:transparent;
-            border: none;
-            color: white; 
-            font-size: 20px;
-            font-weight: 400;
-            &:hover{
-                color: red;
-            }
-        }
-     }
+.suat{
+   display: flex;
+   align-items: center;
+   h6{
+      margin: 0 10px 0 0;
+      color: rgba(255, 255, 255, 0.75);
+   }
+   button{
+      background: none;
+      border: none;
+      border: 1px solid #FFEBEE;
+      margin: 5px;
+      border-radius: 2px;
+      outline: none;
+      &:hover{
+         background-color: #F4511E;
+         color: white;
+         border: 1px solid #F4511E;
+      }
+   }
 }

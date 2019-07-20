@@ -1,0 +1,85 @@
+.review {
+  padding: 100px 0;
+  .review-top {
+    width: 80%;
+    height: 10%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    background: #2196f3;
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+      img {
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        border: none;
+        padding: 0 15px;
+        outline: none;
+      }
+    }
+    .star {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .btn-star {
+        border: none;
+        background: none;
+        outline: none;
+        i {
+          color: white;
+          margin-right: 2px;
+        }
+        .checked {
+          color: yellow;
+        }
+      }
+    }
+  }
+  .review-main {
+    margin-top: 40px;
+    .row {
+      width: 80%;
+      margin: 0 auto;
+      .comment {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 5px;
+        background: #bbdefb;
+        margin-bottom: 25px;
+        padding: 5px 8px;
+        .info {
+          width: 100px;
+          text-align: left;
+          img {
+            border-radius: 50%;
+            margin-bottom: 5px;
+          }
+          .rating-star {
+            i {
+              color: white;
+            }
+          }
+        }
+
+        .content {
+          h5 {
+            text-align: left;
+            margin-bottom: 3px;
+          }
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

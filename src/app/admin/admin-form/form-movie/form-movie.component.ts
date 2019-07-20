@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import { HttpHeaders } from "@angular/common/http";
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
+
 let httpOption = {
   headers: new HttpHeaders({
     "Content-Type": "application/json;charset=UTF-8"
@@ -21,7 +23,7 @@ export class FormMovieComponent implements OnInit {
   idPhim: any;
   condition: boolean = true;
   changeState: boolean = false;
-
+ 
   formTitle = {
     them: "Add Form",
     capNhat: "Update Form",
@@ -140,5 +142,6 @@ export class FormMovieComponent implements OnInit {
       'danhgia': new FormControl(null)
     });
   }
+
 
 }

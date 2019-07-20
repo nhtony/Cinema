@@ -1,0 +1,45 @@
+<section class="review">
+    <div data-toggle="modal" data-target="#reviewModal" class="review-top">
+        <div class="row">
+            <div class="left col-md-9">
+                <img src="../../../../assets/img/header/user1.jpg" alt="">
+                <input id="cmtInput" type="text" placeholder="Hãy nêu cảm nghĩ của bạn...">
+            </div>
+            <div class="star col-md-3">
+                <button (click)="vote(1)" class="btn-star">
+                    <i [ngClass]="{'checked':ischeck[0]}" class="fa fa-star"></i>
+                </button>
+                <button (click)="vote(2)" class="btn-star">
+                    <i [ngClass]="{'checked':ischeck[1]}" class="fa fa-star"></i>
+                </button>
+                <button (click)="vote(3)" class="btn-star">
+                    <i [ngClass]="{'checked':ischeck[2]}" class="fa fa-star"></i>
+                </button>
+                <button (click)="vote(4)" class="btn-star">
+                    <i [ngClass]="{'checked':ischeck[3]}" class="fa fa-star"></i>
+                </button>
+                <button (click)="vote(5)" class="btn-star">
+                    <i [ngClass]="{'checked':ischeck[4]}" class="fa fa-star"></i>
+                </button>
+                <button (click)="Dang()" class="btn btn-danger">Đăng</button>
+            </div>
+        </div>
+    </div>
+    <span *ngIf="isNotNull" class="text-danger message">Vui lòng nhập bình luận!!!</span>
+    <div class="review-main">
+        <div class="row">
+            <div *ngFor="let item of listComment" class="comment col-12">
+                <div class="info">
+                    <img src="../../../../assets/img/header/user1.jpg" alt="">
+                    <div class="rating-star">
+                        <i *ngFor="let star of item.rating" style="color:yellow" class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="content">
+                    <h5>{{item.username}}</h5>
+                    <p class="content">{{item.comment}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -28,8 +28,9 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+              "src/assets/css/flipclock.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -38,7 +39,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/owl.carousel/dist/owl.carousel.min.js",
               "src/assets/js/scroll.js",
-              "src/assets/js/tab.js"
+              "src/assets/js/tab.js",
+              "node_modules/delayed-scroll-restoration-polyfill/index.js"
             ],
             "es5BrowserSupport": true
           },

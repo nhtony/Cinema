@@ -4,28 +4,28 @@
             <div class="time-bar row">
                 <div class="rap col-md-8">
                     <div class="rap__content">
-                        <img src="" alt="hinhRap">
-                        <h4>Ten rap</h4>
-                        <p>thoi gian chieu</p>
+                        <img [src]="objRap.src" alt="hinhRap">
+                        <h5>{{objRap.cinename}}</h5>
                     </div>
                 </div>
                 <div class="time col-md-4">
                     <div class="time__content">
                         <h5>Thời gian giữ ghế</h5>
-                        <span>hh-pp-gg</span>
+                        <div class="clock" style="margin:2em;"></div>
+                        <!-- <div class="message"></div> -->
                     </div>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="seat-map">
-                <h3>Màn hình</h3>
+                <h3>MÀN HÌNH</h3>
                 <div class="seats">
                     <app-ghe *ngFor="let item of seatMaps" [ghe]="item" (eventChonGhe)="chonGhe($event)"></app-ghe>
                 </div>
                 <ul class="seat-note">
-                    <li>Ghế trống</li>
-                    <li>Dang chọn</li>
-                    <li>Đã chọn</li>
+                    <li><span class="colorseat colornull"></span>Ghế trống</li>
+                    <li><span class="colorseat colorbooking"></span>Đang chọn</li>
+                    <li><span class=" colorseat colorbooked"></span>Đã chọn</li>
                 </ul>
             </div>
         </div>
@@ -37,9 +37,8 @@
                     </div>
                     <div class="confirm">
                         <div class="info">
-                            <h4>Ten Phim</h4>
-                            <p>Ten rap</p>
-                            <p>Dia chi</p>
+                            <h4>{{objRap.filmname}}</h4>
+                            <p>{{objRap.cinename}}</p>
                         </div>
                         <div class="chair row">
                             <div class="type col-md-8">
@@ -60,8 +59,8 @@
                         <div class="thanhToan">
                             <h4>Phương thức thanh toán</h4>
                             <form action="/action_page.php" method="get">
-                                <input type="radio" name="gender" value="male"> Male<br>
-                                <input type="radio" name="gender" value="female"> Female<br>
+                                <input type="radio" name="gender" value="male"> Online<br>
+                                <input type="radio" name="gender" value="female"> Visa<br>
                             </form>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
                         </app-combo>
                     </ul>
                     <div class="combo__total">
-                        <span>Tiền:{{tienCombo | currency: "VND" }}</span>
+                        <h4>Tiền:{{tienCombo | currency: "VND" }}</h4>
                     </div>
                 </div>
             </div>

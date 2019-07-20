@@ -14,10 +14,7 @@ export class GheComponent implements OnInit {
 
   constructor(private data: ShareDataService) { }
 
-  
-
   ngOnInit() {
-    console.log(this.ghe);
     
   }
 

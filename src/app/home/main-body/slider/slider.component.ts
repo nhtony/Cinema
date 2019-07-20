@@ -14,5 +14,5 @@ export class SliderComponent implements AfterViewInit {
   mySlideImages = ['01', '02', '03'].map((i) => `/assets/img/header/${i}.jpg`);
 
 
-  mySlideOptions = {center:true, items: 1, dots: true, nav: true ,autoplay:true};
+  mySlideOptions = {center:true, items: 1, dots: true, nav: false ,autoplay:true};
 }

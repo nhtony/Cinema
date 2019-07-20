@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/_core/services/auth.service';
 import { Router } from '@angular/router';
-
+import { ShareDataService } from 'src/_core/services/share-data.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-suat-item',
   templateUrl: './suat-item.component.html',
@@ -10,20 +11,22 @@ import { Router } from '@angular/router';
 export class SuatItemComponent implements OnInit {
 
   @Input() suatChieu;
-  constructor(private _authService: AuthService,private router: Router) { }
+
+  tenRap: string = '';
+  constructor(private _authService: AuthService, private router: Router, private data: ShareDataService) { }
 
   ngOnInit() {
-
+    this.data.shareHinhRap.subscribe((res) => {
+      this.tenRap = res.name;
+    });
   }
 
   vaoPhongVe() {
     if (this._authService.isAuthenticated()) {
-      $('#btnTime').removeAttr('data-toggle');
-      this.router.navigate(["/home/phong-ve/",this.suatChieu.MaLichChieu]);
+      this.router.navigate(["/home/phong-ve/", this.suatChieu.MaLichChieu], { queryParams: { tenrap: this.tenRap } });
     }
-    // else {
-    //   this.data.shareDataActionState(this.isLogin);
-    // }
+    else {
+      Swal.fire('Vui lòng đăng nhập');
+    }
   }
-
 }

@@ -1,0 +1,57 @@
+<section class="user-profile container">
+  <div class="profile-header">
+    <h1>Thông Tin Người Dùng</h1>
+    <button (click)="thoat()" class="btn btn-primary">Thoát</button>
+  </div>
+  <div class="row">
+    <div class="col-profile col-md-4">
+      <form id="profileForm" [formGroup]="genaralForm" (ngSubmit)="genaralFormHandle()">
+        <fieldset>
+          <label for="taikhoan">Tài khoản</label>
+          <input formControlName="taikhoan" type="text">
+        </fieldset>
+        <fieldset>
+          <label for="matkhau">Mật khẩu</label>
+          <input formControlName="matkhau" type="text">
+        </fieldset>
+        <fieldset>
+          <label for="hoten">Họ tên</label>
+          <input formControlName="hoten" type="text">
+        </fieldset>
+        <fieldset>
+          <label for="email">Email</label>
+          <input formControlName="email" type="text">
+        </fieldset>
+        <fieldset>
+          <label for="sdt">Số điện thoại</label>
+          <input formControlName="sdt">
+        </fieldset>
+        <fieldset>
+          <label for="loainguoidung">Loại người dùng</label>
+          <input formControlName="loainguoidung">
+        </fieldset>
+        <fieldset>
+          <button type="submit" id="contact-submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-table col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tên phim</th>
+            <th>Ngày đặt</th>
+            <th>Giá vé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of danhSachVeDaDat">
+            <td>{{item.TenPhim}}</td>
+            <td>{{item.NgayDat}}</td>
+            <td>{{item.GiaVe}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

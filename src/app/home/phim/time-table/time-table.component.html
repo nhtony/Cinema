@@ -8,7 +8,8 @@
         <h5>{{rap.ten}}</h5>
         <h6>{{item.NgayChieuGioChieu | date:'dd-MM-yyyy'}}</h6>
         <div class="btnTime">
-          <a class="btn btn-secondary" routerLink="/home/phong-ve/{{item.MaLichChieu}}">
+          <a class="btn btn-secondary" [routerLink]="['/home/phong-ve/',item.MaLichChieu]"
+            [queryParams]="{tenrap:rap.ten,tenphim:obj.filmname}">
             {{item.NgayChieuGioChieu | date:'hh:mm'}}
           </a>
         </div>

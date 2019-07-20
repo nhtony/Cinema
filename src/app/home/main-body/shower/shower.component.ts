@@ -17,17 +17,24 @@ export class ShowerComponent implements OnInit {
   }
 
   mySlideOptions = {
-    center: true, items: 5, dots: true, nav: true, autoplay: true, responsive: {
+    center: true, items: 5, dots: false, nav: true, autoplay: true, responsive: {
       0: {
-        items: 1
+        items: 1,
+        nav: false,
+        center: false,
       },
-      400: {
-        items: 2
+      540: {
+        items: 1,
+        center: false,
       },
-      740: {
+      720:{
+        items: 2,
+        center: false,
+      },
+      992: {
         items: 3
       },
-      940: {
+      1200: {
         items: 4
       }
     }, loop: true,

@@ -8,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RapItemComponent implements OnInit {
 
   @Input() rap;
+  activeState: boolean = false;
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

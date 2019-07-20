@@ -15,8 +15,10 @@ export class FormLoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  private isLoggedIn: any = {
+  private objLogin: any = {
     status: true,
+    username: '',
+    taikhoan: '',
   };
 
   taiKhoan = new FormControl('', Validators.required);
@@ -33,7 +35,6 @@ export class FormLoginComponent implements OnInit {
       }
     });
   }
-
 
   getMessageRequired(message: string) {
     return message;
@@ -58,8 +59,10 @@ export class FormLoginComponent implements OnInit {
         Swal.fire('Đăng nhập thành công !!!');
         this._authService.login();
         if (this._authService.isAuthenticated()) {
-          this.shareDataService.shareDataCheckLoginState(this.isLoggedIn);
-          this.shareDataService.shareDataAccount(objUser);
+          this.objLogin.username = res.HoTen;
+          this.objLogin.taikhoan = res.TaiKhoan;
+          this.shareDataService.shareDataCheckLoginState(this.objLogin);
+          sessionStorage.setItem('authLogin', JSON.stringify((this.objLogin)));
         }
       }
     });

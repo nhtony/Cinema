@@ -9,7 +9,6 @@
                     <div class="divAction">
                         <span class="minutes">{{phimObj.DanhGia}}<i class="ml-2 fa fa-star"
                                 aria-hidden="true"></i></span>
-                        <button class="btn btn-danger">Mua vé</button>
                     </div>
                 </div>
                 <div class="movie_desc">
@@ -26,26 +25,30 @@
     <mat-tab-group mat-align-tabs="center">
         <mat-tab label="Lịch chiếu" class="lichChieu">
             <ul class="nav nav-tabs nav-brand">
-                <li class="active brand-item"><a data-toggle="tab" href="#bhd"><img
+                <li (click)="active('bhd')" class="brand-item"><a data-toggle="tab" href="#bhd"><img id="bhd-img"
+                            [ngClass]="{'actived':isActived === 'bhd'}"
                             ng-src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
                             src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"></a></li>
-                <li class="brand-item"><a data-toggle="tab" href="#galaxy"><img
+                <li (click)="active( 'galaxy')" class="brand-item"><a data-toggle="tab" href="#galaxy"><img
+                            id="galaxy-img" [ngClass]="{'actived':isActived === 'galaxy'}"
                             ng-src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"
                             src="https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"></a></li>
-                <li class="brand-item"><a data-toggle="tab" href="#cinestar"><img
+                <li (click)="active('cinestar')" class="brand-item"><a data-toggle="tab" href="#cinestar"><img
+                            id="cinestar-img" [ngClass]="{'actived':isActived === 'cinestar'}"
                             ng-src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"
                             src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png"></a></li>
-                <li class="brand-item"><a data-toggle="tab" href="#cgv"><img
+                <li (click)="active('cgv')" class="brand-item"><a data-toggle="tab" href="#cgv"><img id="cgv-img"
+                            [ngClass]="{'actived':isActived === 'cgv'}"
                             ng-src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"
                             src="https://s3img.vcdn.vn/123phim/2018/09/ee621ee05dcd4565caead4f29421b41e.png"></a></li>
-                <li class="brand-item">
-                    <a data-toggle="tab" href="#lotte"><img
+                <li (click)="active('lotte')" class="brand-item">
+                    <a data-toggle="tab" href="#lotte"><img id="lotte-img" [ngClass]="{'actived':isActived === 'lotte'}"
                             ng-src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
                             src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png">
                     </a>
                 </li>
             </ul>
-            <div class="tab-content brand-content">
+            <div id="tabMua" class="tab-content brand-content">
                 <div id="bhd" class="tab-pane show active">
                     <div class="container">
                         <div class="nav nav-tabs nav__tabs" id="nav-tab" role="tablist">
@@ -97,16 +100,16 @@
                                 role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
                             <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-1" role="tab"
                                 aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
-                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-1" role="tab"
-                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
-                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-1" role="tab"
-                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
-                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-1" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
-                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-1" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
-                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-1" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-1"
+                                role="tab" aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-1"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-1"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-1"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-1"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane show active" id="nav-mon-1" role="tabpanel"
@@ -141,16 +144,16 @@
                                 role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
                             <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-2" role="tab"
                                 aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
-                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-2" role="tab"
-                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
-                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-2" role="tab"
-                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
-                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-2" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
-                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-2" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
-                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-2" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-2"
+                                role="tab" aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-2"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-2"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-2"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-2"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane show active" id="nav-mon-2" role="tabpanel"
@@ -185,16 +188,16 @@
                                 role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
                             <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-3" role="tab"
                                 aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
-                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-3" role="tab"
-                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
-                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-3" role="tab"
-                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
-                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-3" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
-                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-3" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
-                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-3" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-3"
+                                role="tab" aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-3"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-3"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-3"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-3"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane show active" id="nav-mon-3" role="tabpanel"
@@ -229,16 +232,16 @@
                                 role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 2</a>
                             <a class="nav-item nav-link" id="nav-tue-tab" data-toggle="tab" href="#nav-tue-4" role="tab"
                                 aria-controls="nav-contact" aria-selected="false">Thứ 3</a>
-                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-4" role="tab"
-                                aria-controls="nav-home" aria-selected="true">Thứ 4</a>
-                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-4" role="tab"
-                                aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
-                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-4" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
-                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-4" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
-                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-4" role="tab"
-                                aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
+                            <a class="nav-item nav-link  " id="nav-wed-tab" data-toggle="tab" href="#nav-wed-4"
+                                role="tab" aria-controls="nav-home" aria-selected="true">Thứ 4</a>
+                            <a class="nav-item nav-link " id="nav-thu-tab" data-toggle="tab" href="#nav-thu-4"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Thứ 5</a>
+                            <a class="nav-item nav-link " id="nav-fri-tab" data-toggle="tab" href="#nav-fri-4"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 6</a>
+                            <a class="nav-item nav-link " id="nav-sat-tab" data-toggle="tab" href="#nav-sat-4"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Thứ 7</a>
+                            <a class="nav-item nav-link " id="nav-sun-tab" data-toggle="tab" href="#nav-sun-4"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Chủ nhật</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane show active" id="nav-mon" role="tabpanel"
@@ -270,47 +273,17 @@
         </mat-tab>
         <mat-tab label="Đánh giá">
             <div class="container">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam amet placeat, alias inventore nisi
-                    impedit dolor quas accusantium tempore. Dolorem modi quaerat repudiandae nemo placeat nobis quam
-                    iste aut commodi hic temporibus facilis totam eligendi laborum dolores, ipsam minus tempora sequi
-                    veniam fuga consequuntur illo molestias. Saepe dolorum, enim adipisci accusantium voluptates modi
-                    doloribus doloremque eos eaque maiores beatae esse mollitia animi obcaecati dolor voluptas id quas
-                    officiis, voluptate asperiores recusandae vel? In odit nesciunt temporibus sit corrupti repellendus
-                    deleniti, voluptatum itaque corporis quidem ad molestias quis unde, animi odio enim necessitatibus
-                    adipisci vero eius voluptatibus. Velit praesentium eos consequatur. Eaque, eius. Facilis dolores
-                    tempore nesciunt perspiciatis, consequatur ut odit fugit quae veniam, voluptas debitis magnam
-                    consequuntur veritatis eaque porro sint iste reiciendis. Ad, quod expedita? Inventore similique a
-                    suscipit repudiandae. Ratione, quia? Non ut in facere nostrum inventore placeat incidunt minima id
-                    dolores illum suscipit modi reprehenderit voluptatum, libero beatae, alias saepe exercitationem
-                    nihil nesciunt at voluptate iste repudiandae! Adipisci delectus possimus consequuntur, odio
-                    perspiciatis repudiandae alias aperiam quod id fuga quidem quo aspernatur numquam! Voluptates
-                    nostrum expedita dignissimos illo pariatur repellendus veniam at, porro exercitationem id quia saepe
-                    quisquam dolorem, voluptatum laudantium corporis provident cupiditate fugit? Dolore nihil, ipsa
-                    laudantium tempore reiciendis maiores exercitationem nisi, pariatur quod magnam quia. Explicabo
-                    culpa harum itaque exercitationem veniam unde est tenetur reprehenderit voluptas nesciunt adipisci,
-                    mollitia sint architecto dolores esse ex laborum quo? Sed, quasi. Rerum, ipsam enim autem itaque
-                    amet quis excepturi nihil ipsum. Ab minus repellat, neque asperiores eius exercitationem veniam
-                    sequi labore nobis fuga quidem, molestiae dolorum quod quis? Ex, cum, sit esse repellendus modi
-                    quibusdam ab quam minus, dolores hic temporibus voluptatibus reiciendis impedit optio consequuntur
-                    sint? Possimus eveniet ducimus recusandae, quam voluptates animi, laboriosam debitis repellendus
-                    est, facilis fuga exercitationem. Recusandae quos quam omnis corrupti, porro iure eos possimus quod
-                    facere voluptatibus harum tenetur voluptates quia culpa tempore eum beatae nulla iusto natus
-                    delectus! Nulla nostrum minima vero nemo fuga mollitia. Quia natus aspernatur sunt corrupti ipsam
-                    veniam vitae ipsum facilis at? Velit ab veritatis doloremque sunt reiciendis ullam provident
-                    excepturi corporis minima eius laborum, iure explicabo quasi porro. Nobis explicabo saepe magni ab
-                    sed modi et minus qui veritatis ratione quos quasi asperiores voluptas iure beatae ullam nam, autem
-                    expedita ut maxime dolorem. Adipisci, placeat neque illo aliquid, ab excepturi corporis alias eaque
-                    iste asperiores, minima consequatur architecto dolor. Sint ad consectetur doloribus consequatur
-                    tenetur accusantium ullam harum maxime magni laboriosam obcaecati libero blanditiis tempora, quos
-                    est delectus fugiat odio mollitia. Neque, deleniti laudantium! Nisi necessitatibus asperiores in
-                    nulla hic suscipit. Harum atque, nemo eveniet tempore consectetur tempora quidem aut architecto
-                    dolores iusto blanditiis consequuntur voluptas soluta enim fugiat necessitatibus id, adipisci vel
-                    laborum est ut! Iure ex adipisci accusantium! Corrupti necessitatibus nemo voluptatum laborum
-                    repellat, illum autem consequuntur accusantium quibusdam sed saepe praesentium nulla. Rem ut tempore
-                    dolorem quos asperiores ipsam odio. Ut blanditiis eius eligendi aspernatur omnis numquam repudiandae
-                    fugiat sequi, nihil fugit quibusdam distinctio exercitationem vel tempora alias nisi nemo vero
-                    optio.</p>
+                <app-review></app-review>
             </div>
         </mat-tab>
     </mat-tab-group>
 </section>
+<!-- <div class="modal" id="reviewModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Modal body..
+            </div>
+        </div>
+    </div>
+</div> -->

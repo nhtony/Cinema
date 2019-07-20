@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/_core/services/data.service';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table-movie',
@@ -14,6 +15,7 @@ import Swal from 'sweetalert2';
 export class TableMovieComponent implements OnInit {
 
   @Input() mang;
+
 
   ELEMENT_DATA = [
 

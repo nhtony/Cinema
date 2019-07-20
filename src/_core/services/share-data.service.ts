@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class ShareDataService {
-  
+
   // danh sach phim
   private listMovie = new BehaviorSubject([] as any);
   shareListMovie = this.listMovie.asObservable();
@@ -17,7 +17,7 @@ export class ShareDataService {
   // danh sach lich chieu
   private listTime = new BehaviorSubject([] as any);
   shareListTime = this.listTime.asObservable();
-  
+
   // các trạng thái hành động (đăng nhập - đăng ký...)
   private actionState = new BehaviorSubject({} as any);
   shareActionState = this.actionState.asObservable();
@@ -36,10 +36,16 @@ export class ShareDataService {
 
   private listPhimDangChieu = new BehaviorSubject([] as any);
   shareListPhimDangChieu = this.listPhimDangChieu.asObservable();
-  
+
   private maPhim = new BehaviorSubject([] as any);
   shareMaPhim = this.maPhim.asObservable();
 
+  private hinhRap = new BehaviorSubject({} as any);
+  shareHinhRap = this.hinhRap.asObservable();
+
+
+  private LichSu = new BehaviorSubject({} as any);
+  shareLichSu = this.LichSu.asObservable();
 
   constructor() { }
 
@@ -81,5 +87,13 @@ export class ShareDataService {
 
   shareDataMaPhim(maPhim: any) {
     this.maPhim.next(maPhim);
+  }
+
+  shareDataHinhRap(hinhRap: any) {
+    this.hinhRap.next(hinhRap);
+  }
+
+  shareDataLichSu(LichSu: any) {
+    this.LichSu.next(LichSu);
   }
 }

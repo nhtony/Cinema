@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { ShareDataService } from 'src/_core/services/share-data.service';
 import { ActivatedRoute } from "@angular/router";
 
+
 @Component({
   selector: 'app-form-user',
   templateUrl: './form-user.component.html',
@@ -15,7 +16,9 @@ export class FormUserComponent implements OnInit {
   genaralForm: FormGroup;
   condition: boolean = true;
   idUser: any;
-  submitted = false;
+
+
+
   constructor(private dataService: DataService, private shareDataService: ShareDataService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -46,10 +49,10 @@ export class FormUserComponent implements OnInit {
       MaNhom: 'GP10',
       MaLoaiNguoiDung: this.genaralForm.value.loainguoidung,
     }
-   
+
     let uri: string = this.condition ? `QuanLyNguoiDung/ThemNguoiDung` : `QuanLyNguoiDung/CapNhatThongTin`;
     this.dataService.post(uri, objUser).subscribe((res: any) => {
-     
+
       if (typeof res === 'object') {
         Swal.fire('Thành công !!!');
         this.resetForm();
@@ -94,5 +97,7 @@ export class FormUserComponent implements OnInit {
       'loainguoidung': new FormControl(null),
     });
   }
+
+
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from 'src/_core/services/data.service';
 import { AuthService } from 'src/_core/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-login',
@@ -12,8 +13,8 @@ export class AdminLoginComponent implements OnInit {
 
   constructor(private dataService: DataService, private _authService: AuthService) { }
 
-  adLoginFrom: FormGroup
-
+  adLoginFrom: FormGroup;
+ 
   ngOnInit() {
     this.adLoginFrom = new FormGroup({
       taikhoan: new FormControl('', Validators.required),
@@ -25,20 +26,20 @@ export class AdminLoginComponent implements OnInit {
   }
 
   adLoginFormHandel() {
-    let objUser = {
+    const objUser = {
       TaiKhoan: this.adLoginFrom.value.taikhoan,
       MatKhau: this.adLoginFrom.value.matkhau,
     }
-    const uri = `QuanLyNguoiDung/DangNhap?TaiKhoan=${objUser.TaiKhoan}&MatKhau=${objUser.MatKhau}`
+    const uri = `QuanLyNguoiDung/DangNhap?TaiKhoan=${objUser.TaiKhoan}&MatKhau=${objUser.MatKhau}`;
     this.dataService.post(uri, objUser).subscribe((res: any) => {
       if (res === "Tài khoản hoặc mật khẩu không đúng !") {
-        alert(res);
+        Swal.fire('Oops...', res, 'error');
       }
       else {
         this._authService.loginAdmin();
+        Swal.fire('Đăng nhập thành công !!!');
       }
     });
-
   }
 
   login() {
@@ -49,6 +50,6 @@ export class AdminLoginComponent implements OnInit {
     return this.adLoginFrom.controls[controlName].hasError(errorName);
   }
 
+  
 
- 
 }
