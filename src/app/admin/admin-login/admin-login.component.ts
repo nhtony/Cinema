@@ -14,8 +14,9 @@ export class AdminLoginComponent implements OnInit {
   constructor(private dataService: DataService, private _authService: AuthService) { }
 
   adLoginFrom: FormGroup;
- 
+
   ngOnInit() {
+    this._authService.clearAdminToken();
     this.adLoginFrom = new FormGroup({
       taikhoan: new FormControl('', Validators.required),
       matkhau: new FormControl('', [
@@ -36,8 +37,13 @@ export class AdminLoginComponent implements OnInit {
         Swal.fire('Oops...', res, 'error');
       }
       else {
-        this._authService.loginAdmin();
-        Swal.fire('Đăng nhập thành công !!!');
+        if (res.MaLoaiNguoiDung === "QuanTri") {
+          this._authService.loginAdmin();
+          Swal.fire('Đăng nhập thành công !!!');
+        }
+        else {
+          Swal.fire('Oops...', "Không có quyền truy cập !!!", 'error');
+        }
       }
     });
   }
@@ -50,6 +56,6 @@ export class AdminLoginComponent implements OnInit {
     return this.adLoginFrom.controls[controlName].hasError(errorName);
   }
 
-  
+
 
 }

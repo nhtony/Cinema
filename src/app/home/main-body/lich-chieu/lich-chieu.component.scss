@@ -25,11 +25,18 @@
       padding: 30px;
       background-color: #ff8a80;
       border-radius: 5px;
+      .col-list-rap {
+        border-right: 1px solid gray;
+      }
     }
   }
 }
-
 .actived {
   transform: scale(1.2) !important;
   opacity: 1 !important;
+}
+@media screen and (max-width: 568px) {
+  .col-6 {
+    padding: 0;
+  }
 }

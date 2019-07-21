@@ -11,14 +11,17 @@
     }
   }
   .phim__info {
+  
     h5 {
       color: red;
       margin-bottom: 3px;
+      overflow: hidden;
     }
     h6 {
       font-size: 13px;
       margin-bottom: 3px;
       color: #ffcdd2;
+      overflow: hidden;
       span {
         margin: 0 5px;
       }
@@ -28,12 +31,23 @@
       height: 20px;
     }
   }
-  &:hover {
-    h6 {
-      color: #ffcdd2;
-    }
-  }
 }
 .collapse {
   margin-bottom: 10px;
+}
+@media screen and (max-width: 996px) {
+  .col__phim {
+    margin-left: 10px;
+    .phim__img {
+      img {
+        width: 50px;
+        height: 55px;
+      }
+    }
+    .phim__info {
+      h5 {
+        font-size: 16px;
+      }
+    }
+  }
 }

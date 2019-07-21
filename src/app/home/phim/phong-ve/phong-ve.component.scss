@@ -177,3 +177,39 @@
     left: 100%;
   }
 }
+@media screen and (max-width: 1389px) {
+  .phongve {
+    .seats {
+      width: 61% !important;
+    }
+  }
+}
+@media screen and (max-width: 1366px) {
+  .phongve {
+    .seats {
+      width: 71% !important;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .phongve {
+    .seats {
+      width: 80% !important;
+    }
+  }
+}
+@media screen and (max-width: 1055px) {
+  .phongve {
+    .seats {
+      width: 90% !important;
+    }
+  }
+}
+@media screen and (max-width: 945px) {
+  .phongve {
+    .seats {
+      width: 100% !important;
+    }
+  }
+}
+

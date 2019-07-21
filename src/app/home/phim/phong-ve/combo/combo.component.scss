@@ -27,3 +27,16 @@ li {
     }
   }
 }
+@media screen and (max-width: 996px) {
+  .combo__item {
+    padding: 0;
+    .combo__item__info {
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .combo__item__quality {
+    padding: 0;
+  }
+}

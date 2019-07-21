@@ -23,15 +23,16 @@ export class ShowerComponent implements OnInit {
         nav: false,
         center: false,
       },
-      540: {
+      576: {
         items: 1,
         center: false,
+        nav: false,
       },
-      720:{
+      768:{
         items: 2,
         center: false,
       },
-      992: {
+      996: {
         items: 3
       },
       1200: {

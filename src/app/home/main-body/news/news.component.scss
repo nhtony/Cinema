@@ -6,15 +6,33 @@
   }
   &__content {
     .col-card {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
       .card {
         width: 100%;
         height: 100%;
-       
+
         .card-title {
           a {
             text-decoration: none;
             color: black;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .news__content {
+    .col-card {
+      .card {
+        .card-body {
+          .card-title {
+            height: 60px;
+            overflow: hidden;
+          }
+          .card-text {
+            height: 60px;
+            overflow: hidden;
           }
         }
       }

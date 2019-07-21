@@ -1,5 +1,4 @@
 .col__rap {
-  border-right: 1px solid gray;
   padding: 0;
   list-style: none;
   cursor: pointer;
@@ -28,4 +27,50 @@
 
 .isActived {
   opacity: 1;
+}
+@media screen and (max-width: 996px) {
+  .col__rap {
+    .rap {
+      .rap__img {
+        img {
+          width: 50px;
+          height: 55px;
+        }
+      }
+      .rap__info {
+     
+        h5 {
+          font-size: 16px;
+          overflow: hidden;
+        }
+        h6{
+          font-size: 13px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 568px) {
+  .col__rap {
+    padding: 0;
+    .rap {
+      margin-right: 5px;
+      .rap__img {
+        margin-right: 0;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .rap__info {
+        h5 {
+          font-size: 13px;
+        }
+        h6{
+         display: none;
+        }
+      }
+    }
+  }
 }

@@ -12,3 +12,8 @@
 .gheDangChon {
   background-color: yellow;
 }
+@media screen and (max-width: 576px) {
+  .btnGhe{
+    width: 50px;
+  }
+}
