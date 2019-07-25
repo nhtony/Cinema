@@ -169,9 +169,12 @@ export class PhongVeComponent implements OnInit {
   }
 
   getAccount() {
-    this.data.shareAccount.subscribe((res) => {
-      this.account = res.TaiKhoan;
-    });
+    let userLogin = JSON.parse(sessionStorage.getItem('authLogin'));
+    this.account = userLogin.taikhoan;
+    console.log(userLogin);
+
+    console.log(this.account);
+
   }
 
   getHinhRap() {

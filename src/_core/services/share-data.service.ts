@@ -31,9 +31,6 @@ export class ShareDataService {
   private checkLoginState = new BehaviorSubject({} as any);
   shareCheckLoginState = this.checkLoginState.asObservable();
 
-  private account = new BehaviorSubject({} as any);
-  shareAccount = this.account.asObservable();
-
   private listPhimDangChieu = new BehaviorSubject([] as any);
   shareListPhimDangChieu = this.listPhimDangChieu.asObservable();
 
@@ -75,10 +72,6 @@ export class ShareDataService {
 
   shareDataCheckLoginState(checkLoginState: any) {
     this.checkLoginState.next(checkLoginState);
-  }
-
-  shareDataAccount(account: any) {
-    this.account.next(account);
   }
 
   shareDataListPhimDangChieu(listPhimDangChieu: any) {
