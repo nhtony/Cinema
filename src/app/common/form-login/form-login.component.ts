@@ -15,6 +15,8 @@ export class FormLoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
+
+
   private objLogin: any = {
     status: true,
     username: '',
@@ -62,7 +64,7 @@ export class FormLoginComponent implements OnInit {
           this.objLogin.username = res.HoTen;
           this.objLogin.taikhoan = res.TaiKhoan;
           this.shareDataService.shareDataCheckLoginState(this.objLogin);
-          sessionStorage.setItem('authLogin', JSON.stringify((this.objLogin)));
+          localStorage.setItem('authLogin', JSON.stringify((this.objLogin)));
         }
       }
     });

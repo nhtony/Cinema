@@ -14,15 +14,15 @@ export class AuthService {
    * this is used to clear anything that needs to be removed
    */
   clear(): void {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 
   clearAdminToken():void{
-    sessionStorage.removeItem('tokenadmin');
+    localStorage.removeItem('tokenadmin');
   }
 
   clearUserToken():void{
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
   }
 
   /**
@@ -30,11 +30,11 @@ export class AuthService {
    * @return {boolean}
    */
   isAuthenticated(): boolean {
-    return sessionStorage.getItem('token') != null && !this.isTokenExpired();
+    return localStorage.getItem('token') != null && !this.isTokenExpired();
   }
 
   isAuthenticatedAdmin(): boolean {
-    return sessionStorage.getItem('tokenadmin') != null && !this.isTokenExpired();
+    return localStorage.getItem('tokenadmin') != null && !this.isTokenExpired();
   }
 
   // simulate jwt token is valid
@@ -44,12 +44,12 @@ export class AuthService {
   }
 
   loginAdmin(): void {
-    sessionStorage.setItem('tokenadmin', `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MzMyNzM5NjksImV4cCI6MTU2NDgxMDAwNSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiVGVzdCBHdWFyZCIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4ifQ.rEkg53_IeCLzGHlmaHTEO8KF5BNfl6NEJ8w-VEq2PkE`);
+    localStorage.setItem('tokenadmin', `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MzMyNzM5NjksImV4cCI6MTU2NDgxMDAwNSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiVGVzdCBHdWFyZCIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW4ifQ.rEkg53_IeCLzGHlmaHTEO8KF5BNfl6NEJ8w-VEq2PkE`);
     this._router.navigate(['/admin']);
   }
 
   login(): void {
-    sessionStorage.setItem('token', `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MzMyNzM5NjksImV4cCI6MTU2NDgxMDAwNSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiVGVzdCBHdWFyZCIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20ifQ.GA0Y9gYIjmx1jLwuRHuBgZ8m6o-NgkD84nO0ym68CWo`);
+    localStorage.setItem('token', `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MzMyNzM5NjksImV4cCI6MTU2NDgxMDAwNSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiVGVzdCBHdWFyZCIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20ifQ.GA0Y9gYIjmx1jLwuRHuBgZ8m6o-NgkD84nO0ym68CWo`);
     this._router.navigate(['/home']);
   }
 
@@ -61,6 +61,6 @@ export class AuthService {
   }
 
   decode() {
-    return decode(sessionStorage.getItem('token'));
+    return decode(localStorage.getItem('token'));
   }
 }

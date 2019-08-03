@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   getDanhSachPhim() {
-    const uri = `QuanLyPhim/LayDanhSachPhim?MaNhom=GP10`;
+    const uri = 'QuanLyPhim/LayDanhSachPhim?MaNhom=GP09';
     this.subListMovie = this.dataService.get(uri).subscribe((res: any) => {
       this.shareDataService.shareDataListMovie(res);
       this.pushListIdPhim();

@@ -169,11 +169,8 @@ export class PhongVeComponent implements OnInit {
   }
 
   getAccount() {
-    let userLogin = JSON.parse(sessionStorage.getItem('authLogin'));
+    let userLogin = JSON.parse(localStorage.getItem('authLogin'));
     this.account = userLogin.taikhoan;
-    console.log(userLogin);
-
-    console.log(this.account);
 
   }
 
